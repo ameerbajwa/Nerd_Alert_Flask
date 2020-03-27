@@ -20,6 +20,33 @@ create_quiz_table = "CREATE TABLE quiz (" \
 
 create_quiz_question_table = "CREATE TABLE quiz_questions (" \
                              "  question_id INT NOT NULL PRIMARY KEY," \
-                             "  quiz_id INT NOT NULL UNIQUE," \
-                             "  " \
+                             "  quiz_id INT NOT NULL," \
+                             "  question VARCHAR(500) NOT NULL," \
+                             "  choice_A VARCHAR(500) NOT NULL," \
+                             "  choice_B VARCHAR(500) NOT NULL," \
+                             "  choice_C VARCHAR(500) NOT NULL," \
+                             "  choice_D VARCHAR(500) NOT NULL," \
+                             "  correct_answer VARCHAR(10) NOT NULL," \
+                             "  date_created DATETIME NOT NULL" \
+                             "  FOREIGN KEY quiz_id REFERENCES quiz(quiz_id)" \
                              ");"
+
+create_user_quiz_results = "CREATE TABLE user_quiz_results (" \
+                           "    user_id INT NOT NULL," \
+                           "    quiz_id INT NOT NULL," \
+                           "    score INT NOT NULL," \
+                           "    date_created DATETIME NOT NULL," \
+                           "    FOREIGN KEY user_id REFERENCES user(user_id)," \
+                           "    FOREIGN KEY quiz_id REFERENCES quiz(quiz_id)" \
+                           ");"
+
+create_user_question_results = "CREATE TABLE user_question_results (" \
+                               "    user_id INT NOT NULL," \
+                               "    quiz_id INT NOT NULL," \
+                               "    question_id INT NOT NULL," \
+                               "    user_answer VARCHAR(10) NOT NULL," \
+                               "    correct_answer VARCHAR(10) NOT NULL," \
+                               "    FOREIGN KEY user_id REFERENCES user(user_id)," \
+                               "    FOREIGN KEY quiz_id REFERENCES quiz(quiz_id)," \
+                               "    FOREIGN KEY question_id REFERENCES quiz_questions(question_id)" \
+                               ");"
