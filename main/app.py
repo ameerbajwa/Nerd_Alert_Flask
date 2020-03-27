@@ -1,15 +1,17 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
 
-from connection import connect_to_mysql_database
+# from connection import connect_to_mysql_database
+from SQL_history import connection
 
 app = Flask(__name__)
 api = Api(app)
 
+
 class Users(Resource):
 
     def get(self):
-        connection_to_database = connect_to_mysql_database()
+        connection_to_database = connection.connect_to_mysql_database()
 
         cursor = connection_to_database.cursor()
         sql_query = "SELECT * FROM users"
