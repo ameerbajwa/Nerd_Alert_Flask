@@ -3,7 +3,8 @@ from datetime import datetime
 from .connection import connect_to_mysql_database
 from .create_tables_SQL_statements import create_users_table, create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results
 from .users_table_SQL_statements import select_user_by_username, select_user_by_user_id, register_new_user
-from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type
+from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type, select_quiz_by_id, insert_new_quiz
+from .quiz_questions_tables_SQL_statements import insert_quiz_question
 
 
 def create_nerd_alert_tables():
@@ -110,3 +111,49 @@ def find_quiz_by_type(type):
     connection_to_database.close()
 
     return results
+
+
+def find_quiz_by_id(id):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_quiz_by_id
+        cursor.execute(query, (id,))
+        results = cursor.fetchall()
+
+    connection_to_database.close()
+
+    if len(results) > 0:
+        return results
+    else:
+        return None
+
+
+def create_quiz(data):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = insert_new_quiz
+        cursor.execute(query, (str(data['quiz_id']), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
+                               str(data['createdBy_user_id']), str(datetime.now()),
+                               '1'))
+
+        connection_to_database.commit()
+
+    connection_to_database.close()
+    return True
+
+
+def create_quiz_question(data):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = insert_quiz_question
+        cursor.execute(query, (str(data['quiz_id']), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
+                               str(data['createdBy_user_id']), str(datetime.now()),
+                               '1'))
+
+        connection_to_database.commit()
+
+    connection_to_database.close()
+    return True
