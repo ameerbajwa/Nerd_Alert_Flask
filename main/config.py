@@ -1,0 +1,6 @@
+APP_SECRET_KEY = 'soccer'
+
+MYSQL_DATABASE_USERNAME = 'root'
+MYSQL_DATABASE_PASSWORD = 'password'
+MYSQL_DATABASE_HOST = 'localhost'
+MYSQL_DATABASE_NAME = 'nerd_alert'

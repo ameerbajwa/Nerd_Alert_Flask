@@ -1,31 +1,15 @@
-from flask import Flask, jsonify
-from flask_restful import Resource, Api
+from flask import Flask
+from flask_restful import Api
+from flask_jwt import JWT
 
-# from connection import connect_to_mysql_database
-from SQL_history import connection
+from API_classes import users, security
+import config
 
 app = Flask(__name__)
 api = Api(app)
+app.secret_key = config.APP_SECRET_KEY
+jwt = JWT(app, security.authenticate, security.identity)
 
-
-class Users(Resource):
-
-    def get(self):
-        connection_to_database = connection.connect_to_mysql_database()
-
-        cursor = connection_to_database.cursor()
-        sql_query = "SELECT * FROM users"
-        cursor.execute(sql_query)
-        results = cursor.fetchall()
-        connection_to_database.close()
-
-        users = []
-        for result in results:
-            users.append(result)
-
-        return jsonify(users)
-
-
-api.add_resource(Users, '/users')
+api.add_resource(users.UserRegister, '/register_user')
 
 app.run(port=6373, debug=True)
