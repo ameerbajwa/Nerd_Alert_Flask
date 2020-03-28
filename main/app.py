@@ -12,7 +12,7 @@ jwt = JWT(app, security.authenticate, security.identity)
 
 api.add_resource(users.UserRegister, '/register_user', methods=['POST'])
 api.add_resource(quizzes.Quizzes, '/quizzes', methods=['GET', 'POST'])
-app.add_resource(quizzes.Quiz, '/quiz/<string:identifier>/<string:value>', methods=['GET'])
-app.add_resource(quiz_questions, '/quiz_questions', methods=['POST'])
+api.add_resource(quizzes.Quiz, '/quiz/<string:identifier>/<string:value>', methods=['GET'])
+api.add_resource(quiz_questions.quizQuestions, '/quiz_questions', methods=['POST'])
 
 app.run(port=6373, debug=True)
