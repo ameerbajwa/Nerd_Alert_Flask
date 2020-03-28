@@ -6,22 +6,20 @@ from SQL_history import SQL_queries_to_database
 
 class Quizzes(Resource):
 
-    @staticmethod
     @jwt_required
-    def get():
+    def get(self):
         quizzes = SQL_queries_to_database.select_all_quizzes()
         return quizzes
 
-    @staticmethod
     @jwt_required
-    def post():
+    def post(self):
         data = request.get_json()
         print(data)
 
-        # if SQL_queries_to_database.find_quiz_by_id(data['quiz_id']):
-        #     return {'message': 'A quiz '}, 400
+        if SQL_queries_to_database.find_quiz_by_id(data['quiz_id']):
+            return {'message': 'A quiz with that id already exists'}, 400
 
-        committed = SQL_queries_to_database.insert_quiz(data)
+        committed = SQL_queries_to_database.create_quiz(data)
 
         if committed:
             return {'message': "Quiz created successfully."}, 201
@@ -29,9 +27,8 @@ class Quizzes(Resource):
 
 class Quiz(Resource):
 
-    @staticmethod
     @jwt_required
-    def get(identifier, value):
+    def get(self, identifier, value):
         if identifier == 'username':
             quizzes = SQL_queries_to_database.find_quiz_by_username(value)
         elif identifier == 'createdBy':

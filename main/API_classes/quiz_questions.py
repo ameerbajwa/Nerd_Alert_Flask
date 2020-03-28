@@ -6,9 +6,8 @@ from SQL_history import SQL_queries_to_database
 
 class quizQuestions(Resource):
 
-    @staticmethod
     @jwt_required
-    def post():
+    def post(self):
         data = request.get_json()
         print(data)
 

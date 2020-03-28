@@ -136,7 +136,7 @@ def create_quiz(data):
         query = insert_new_quiz
         cursor.execute(query, (str(data['quiz_id']), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
                                str(data['createdBy_user_id']), str(datetime.now()),
-                               '1'))
+                               str(1)))
 
         connection_to_database.commit()
 
