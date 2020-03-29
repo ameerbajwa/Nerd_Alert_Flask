@@ -149,9 +149,9 @@ def create_quiz_question(data):
 
     with connection_to_database.cursor() as cursor:
         query = insert_quiz_question
-        cursor.execute(query, (str(data['quiz_id']), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
-                               str(data['createdBy_user_id']), str(datetime.now()),
-                               '1'))
+        cursor.execute(query, (str(data['question_id']), str(data['quiz_id']), data['question'], data['choice_A'],
+                               data['choice_B'], data['choice_C'], data['choice_D'], data['correct_answer'],
+                               str(datetime.now())))
 
         connection_to_database.commit()
 

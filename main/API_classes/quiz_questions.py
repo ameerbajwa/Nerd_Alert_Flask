@@ -6,15 +6,16 @@ from SQL_history import SQL_queries_to_database
 
 class quizQuestions(Resource):
 
-    @jwt_required
+    @jwt_required()
     def post(self):
         data = request.get_json()
-        print(data)
 
         committed_list = []
-        for d in data:
-            committed = SQL_queries_to_database.insert_quiz_question(d)
+        for k in data.keys():
+            print(k)
+            print(data[k])
+            committed = SQL_queries_to_database.create_quiz_question(data[k])
             committed_list.append(committed)
 
-        if len(committed_list) < 10 or None in committed_list:
+        if None in committed_list:
             return {'message': 'Quiz questions created successfully.'}, 201

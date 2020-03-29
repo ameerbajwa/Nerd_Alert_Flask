@@ -7,7 +7,7 @@ select_quiz_by_createdBy = "SELECT * FROM quiz WHERE createdBy=%s;"
 
 select_quiz_by_quiz_type = "SELECT * FROM quiz WHERE type_of_quiz=%s;"
 
-select_quiz_by_id = "SELECT * FROM quiz WHERE user_id=%s;"
+select_quiz_by_id = "SELECT * FROM quiz WHERE quiz_id=%s;"
 
 insert_new_quiz = "INSERT INTO quiz (" \
                   " quiz_id, " \

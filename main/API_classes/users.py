@@ -35,8 +35,7 @@ class User:
 
 class UserRegister(Resource):
 
-    @staticmethod
-    def post():
+    def post(self):
         data = request.get_json()
 
         if User.find_by_username(data['username']):

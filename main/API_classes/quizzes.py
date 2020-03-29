@@ -6,12 +6,12 @@ from SQL_history import SQL_queries_to_database
 
 class Quizzes(Resource):
 
-    @jwt_required
+    @jwt_required()
     def get(self):
         quizzes = SQL_queries_to_database.select_all_quizzes()
         return quizzes
 
-    @jwt_required
+    @jwt_required()
     def post(self):
         data = request.get_json()
         print(data)
@@ -27,7 +27,7 @@ class Quizzes(Resource):
 
 class Quiz(Resource):
 
-    @jwt_required
+    @jwt_required()
     def get(self, identifier, value):
         if identifier == 'username':
             quizzes = SQL_queries_to_database.find_quiz_by_username(value)
