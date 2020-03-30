@@ -1,4 +1,4 @@
-from werkzeug.security import safe_str_cmp, check_password_hash
+from werkzeug.security import check_password_hash
 from .users import User
 
 
