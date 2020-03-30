@@ -12,10 +12,13 @@ class quizQuestions(Resource):
 
         committed_list = []
         for k in data.keys():
-            print(k)
-            print(data[k])
             committed = SQL_queries_to_database.create_quiz_question(data[k])
             committed_list.append(committed)
 
         if None in committed_list:
             return {'message': 'Quiz questions created successfully.'}, 201
+
+    @jwt_required()
+    def get(self, quiz, user):
+        quiz_questions = SQL_queries_to_database.find_quiz_questions(quiz, user)
+        return quiz_questions

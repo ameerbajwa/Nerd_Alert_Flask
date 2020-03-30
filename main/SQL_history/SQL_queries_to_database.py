@@ -1,10 +1,11 @@
 from datetime import datetime
+from werkzeug.security import generate_password_hash
 
 from .connection import connect_to_mysql_database
 from .create_tables_SQL_statements import create_users_table, create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results
 from .users_table_SQL_statements import select_user_by_username, select_user_by_user_id, register_new_user
-from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type, select_quiz_by_id, insert_new_quiz
-from .quiz_questions_tables_SQL_statements import insert_quiz_question
+from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type, select_quiz_by_id, insert_new_quiz, select_quiz_id
+from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions
 
 
 def create_nerd_alert_tables():
@@ -52,7 +53,7 @@ def create_user(data):
 
     with connection_to_database.cursor() as cursor:
         query = register_new_user
-        cursor.execute(query, (data['id'], data['username'], data['password'], data['email'], str(datetime.now()),
+        cursor.execute(query, (data['id'], data['username'], generate_password_hash(data['password']), data['email'], str(datetime.now()),
                                str(datetime.now())))
 
         connection_to_database.commit()
@@ -129,12 +130,12 @@ def find_quiz_by_id(id):
         return None
 
 
-def create_quiz(data):
+def create_quiz(data, quiz_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = insert_new_quiz
-        cursor.execute(query, (str(data['quiz_id']), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
+        cursor.execute(query, (str(quiz_id+1), data['quiz_name'], data['type_of_quiz'], data['createdBy'],
                                str(data['createdBy_user_id']), str(datetime.now()),
                                str(1)))
 
@@ -142,6 +143,18 @@ def create_quiz(data):
 
     connection_to_database.close()
     return True
+
+
+def find_new_quiz_id():
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_quiz_id
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+    connection_to_database.close()
+    return result
 
 
 def create_quiz_question(data):
@@ -157,3 +170,15 @@ def create_quiz_question(data):
 
     connection_to_database.close()
     return True
+
+
+def find_quiz_questions(quiz, user):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_quiz_questions
+        cursor.execute(query, (quiz, user))
+        results = cursor.fetchall()
+
+    connection_to_database.close()
+    return results

@@ -1,10 +1,10 @@
-from werkzeug.security import safe_str_cmp
+from werkzeug.security import safe_str_cmp, check_password_hash
 from .users import User
 
 
 def authenticate(username, password):
     user = User.find_by_username(username)
-    if user and safe_str_cmp(user.password, password):
+    if user and check_password_hash(user.password, password):
         return user
 
 

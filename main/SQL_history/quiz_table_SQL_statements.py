@@ -18,3 +18,5 @@ insert_new_quiz = "INSERT INTO quiz (" \
                   " date_created, " \
                   " active) " \
                   "VALUES (%s,%s,%s,%s,%s,%s,%s);"
+
+select_quiz_id = "SELECT quiz_id FROM quiz ORDER BY date_created DESC LIMIT 1"

@@ -1,4 +1,5 @@
 from flask_restful import Resource, request
+from werkzeug.security import generate_password_hash
 
 from SQL_history import SQL_queries_to_database
 
