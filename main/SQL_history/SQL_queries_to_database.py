@@ -6,6 +6,7 @@ from .create_tables_SQL_statements import create_users_table, create_quiz_table,
 from .users_table_SQL_statements import select_user_by_username, select_user_by_user_id, register_new_user, select_user_id
 from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type, select_quiz_by_id, insert_new_quiz, select_quiz_id
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions
+from .user_quiz_results_table_SQL_statements import select_user_id_quiz_id, insert_user_quiz_results
 
 
 def create_nerd_alert_tables():
@@ -194,3 +195,28 @@ def find_quiz_questions(quiz, user):
 
     connection_to_database.close()
     return results
+
+
+def find_user_id_quiz_id(user, quiz):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_user_id_quiz_id
+        cursor.execute(query, (user, quiz))
+        results = cursor.fetchall()
+
+    connection_to_database.close()
+    return results
+
+
+def implant_users_quiz_score(data):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = insert_user_quiz_results
+        cursor.execute(query, (data['user_id'], data['quiz_id'], str(data['score']), str(datetime.now())))
+
+        connection_to_database.commit()
+
+    connection_to_database.close()
+    return True

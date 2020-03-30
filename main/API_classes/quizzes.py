@@ -14,13 +14,11 @@ class Quizzes(Resource):
     @jwt_required()
     def post(self):
         data = request.get_json()
-        print(data)
 
         if SQL_queries_to_database.find_quiz_by_id(data['quiz_id']):
             return {'message': 'A quiz with that id already exists'}, 400
 
         quiz_id = SQL_queries_to_database.find_new_quiz_id()
-
         committed = SQL_queries_to_database.create_quiz(data, quiz_id)
 
         if committed:

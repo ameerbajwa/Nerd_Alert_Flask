@@ -43,7 +43,6 @@ class UserRegister(Resource):
             return {'message': 'A user with that username already exists'}, 400
 
         user_id = SQL_queries_to_database.find_user_id()
-
         committed = SQL_queries_to_database.create_user(data, user_id)
 
         if committed:
