@@ -1,4 +1,4 @@
-from SQL_history import SQL_queries_to_database
+from Models import SQL_queries_to_database
 
 create_tables = 0
 

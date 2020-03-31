@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 
-from API_classes import users, security, quizzes, quiz_questions, user_quiz_results, user_question_results
+from Resources import users, security, quizzes, quiz_questions, user_quiz_results, user_question_results
 import config
 
 app = Flask(__name__)

@@ -1,7 +1,7 @@
 from flask_restful import Resource, request
 from flask_jwt import jwt_required
 
-from SQL_history import SQL_queries_to_database
+from Models import SQL_queries_to_database
 
 
 class userQuizResults(Resource):
