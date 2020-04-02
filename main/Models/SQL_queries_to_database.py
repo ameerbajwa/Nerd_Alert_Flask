@@ -57,10 +57,14 @@ def find_user_id():
         sql_query = select_user_id
         cursor.execute(sql_query)
         result = cursor.fetchall()
+        print(type(result))
 
     connection_to_database.close()
 
-    return result
+    if len(result) == 0:
+        result = (0,)
+
+    return result[0]
 
 
 def create_user(data, user_id):

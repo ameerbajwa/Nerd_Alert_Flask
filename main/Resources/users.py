@@ -1,5 +1,5 @@
 from flask_restful import Resource, request
-from werkzeug.security import generate_password_hash
+from flask_jwt import jwt_required
 
 from Models import SQL_queries_to_database
 
@@ -47,3 +47,12 @@ class UserRegister(Resource):
 
         if committed:
             return {'message': "User created successfully."}, 201
+
+
+class UserInfo(Resource):
+
+    def get(self):
+        data = request.get_json()
+
+        user = User.find_by_username(data['username'])
+        return user
