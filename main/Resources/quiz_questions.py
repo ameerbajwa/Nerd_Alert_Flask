@@ -1,3 +1,4 @@
+from flask import jsonify
 from flask_restful import Resource, request
 from flask_jwt import jwt_required
 
@@ -19,6 +20,8 @@ class quizQuestions(Resource):
             return {'message': 'Quiz questions created successfully.'}, 201
 
     # @jwt_required()
-    def get(self, quiz, user):
-        quiz_questions = SQL_queries_to_database.find_quiz_questions(quiz, user)
-        return quiz_questions
+    def get(self):
+        data = request.get_json()
+
+        quiz_questions = SQL_queries_to_database.find_quiz_questions(data['quiz_id'], data['user_id'])
+        return jsonify(quiz_questions)

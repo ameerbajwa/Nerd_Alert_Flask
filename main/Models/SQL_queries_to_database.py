@@ -197,12 +197,12 @@ def create_quiz_question(data):
     return True
 
 
-def find_quiz_questions(quiz, user):
+def find_quiz_questions(quiz_id, user_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_questions
-        cursor.execute(query, (quiz, user))
+        cursor.execute(query, (quiz_id, user_id))
         results = cursor.fetchall()
 
     connection_to_database.close()

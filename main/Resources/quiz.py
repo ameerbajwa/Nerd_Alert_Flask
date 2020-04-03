@@ -27,10 +27,11 @@ class Quiz(Resource):
     def post(self):
         data = request.get_json()
 
-        # if SQL_queries_to_database.find_quiz_by_id(data['quiz_id']):
-        #     return {'message': 'A quiz with that id already exists'}, 400
-
         quiz_id = SQL_queries_to_database.find_new_quiz_id()
+
+        if SQL_queries_to_database.find_quiz_by_id(quiz_id):
+            return {'message': 'A quiz with that id already exists'}, 400
+
         committed = SQL_queries_to_database.create_quiz(data, quiz_id)
 
         if committed:
