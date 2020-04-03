@@ -57,7 +57,6 @@ def find_user_id():
         sql_query = select_user_id
         cursor.execute(sql_query)
         result = cursor.fetchall()
-        print(type(result))
 
     connection_to_database.close()
 
@@ -172,7 +171,12 @@ def find_new_quiz_id():
         result = cursor.fetchall()
 
     connection_to_database.close()
-    return result
+
+    if len(result) == 0:
+        result = (0,)
+
+    print(result[0])
+    return result[0]
 
 
 def create_quiz_question(data):

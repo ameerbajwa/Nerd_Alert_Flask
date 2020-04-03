@@ -20,4 +20,4 @@ insert_new_quiz = "INSERT INTO quiz (" \
                   " active) " \
                   "VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
 
-select_quiz_id = "SELECT quiz_id FROM quiz ORDER BY date_created DESC LIMIT 1"
+select_quiz_id = "SELECT quiz_id FROM quiz ORDER BY date_created DESC LIMIT 1;"
