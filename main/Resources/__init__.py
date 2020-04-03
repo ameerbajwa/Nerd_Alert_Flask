@@ -1,1 +1,1 @@
-from . import users, security, quizzes, quiz_questions, user_quiz_results
+from . import users, security, quiz, quiz_questions, user_quiz_results

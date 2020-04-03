@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash
 from .connection import connect_to_mysql_database
 from .create_tables_SQL_statements import create_users_table, create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results
 from .users_table_SQL_statements import select_user_by_username, select_user_by_user_id, register_new_user, select_user_id
-from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_quiz_type, select_quiz_by_id, insert_new_quiz, select_quiz_id
+from .quiz_table_SQL_statements import select_all_quizzes, select_quiz_by_quiz_name, select_quiz_by_createdBy, select_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions
 from .user_quiz_results_table_SQL_statements import select_user_id_quiz_id, insert_user_quiz_results
 from .user_question_results_table_SQL_statements import select_user_id_question_id, insert_user_question_results
@@ -24,6 +24,7 @@ def create_nerd_alert_tables():
     connection_to_database.close()
 
 
+# USER SQL STATEMENTS #
 def find_user_by_username(username):
     connection_to_database = connect_to_mysql_database()
 
@@ -80,6 +81,7 @@ def create_user(data, user_id):
     return True
 
 
+# QUIZ SQL STATEMENTS #
 def find_all_quizzes():
     connection_to_database = connect_to_mysql_database()
 
@@ -93,12 +95,12 @@ def find_all_quizzes():
     return results
 
 
-def find_quiz_by_username(username):
+def find_quiz_by_name(quiz_name):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_by_quiz_name
-        cursor.execute(query, (username,))
+        cursor.execute(query, (quiz_name,))
         results = cursor.fetchall()
 
     connection_to_database.close()
@@ -123,7 +125,7 @@ def find_quiz_by_type(type):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
-        query = select_quiz_by_quiz_type
+        query = select_quiz_by_source
         cursor.execute(query, (type,))
         results = cursor.fetchall()
 
@@ -179,6 +181,7 @@ def find_new_quiz_id():
     return result[0]
 
 
+# QUIZ QUESTION SQL STATEMENTS #
 def create_quiz_question(data):
     connection_to_database = connect_to_mysql_database()
 
@@ -206,6 +209,7 @@ def find_quiz_questions(quiz, user):
     return results
 
 
+# USERS QUIZ RESULTS SQL STATEMENTS #
 def find_user_id_quiz_id(user, quiz):
     connection_to_database = connect_to_mysql_database()
 
@@ -231,6 +235,7 @@ def implant_users_quiz_score(data):
     return True
 
 
+# USER QUESTION RESULTS SQL STATEMENTS #
 def find_user_id_question_id(user, question):
     connection_to_database = connect_to_mysql_database()
 

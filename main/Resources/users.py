@@ -18,7 +18,8 @@ class User:
         results = SQL_queries_to_database.find_user_by_username(username)
 
         if results:
-            user = cls(results['user_id'], results['username'], results['password'], results['email'], results['date_created'], results['last_login'])
+            user = cls(results['user_id'], results['username'], results['password'], results['email'],
+                       results['date_created'], results['last_login'])
         else:
             user = None
         return user

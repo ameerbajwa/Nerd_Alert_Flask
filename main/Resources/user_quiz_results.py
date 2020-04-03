@@ -6,7 +6,7 @@ from Models import SQL_queries_to_database
 
 class userQuizResults(Resource):
 
-    @jwt_required()
+    # @jwt_required()
     def post(self):
         data = request.get_json()
 

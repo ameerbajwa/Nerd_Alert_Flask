@@ -6,7 +6,7 @@ from Models import SQL_queries_to_database
 
 class quizQuestions(Resource):
 
-    @jwt_required()
+    # @jwt_required()
     def post(self):
         data = request.get_json()
 
@@ -18,7 +18,7 @@ class quizQuestions(Resource):
         if None in committed_list:
             return {'message': 'Quiz questions created successfully.'}, 201
 
-    @jwt_required()
+    # @jwt_required()
     def get(self, quiz, user):
         quiz_questions = SQL_queries_to_database.find_quiz_questions(quiz, user)
         return quiz_questions
