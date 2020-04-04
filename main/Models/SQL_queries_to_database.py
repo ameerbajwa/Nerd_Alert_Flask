@@ -82,12 +82,12 @@ def create_user(data, user_id):
 
 
 # QUIZ SQL STATEMENTS #
-def find_all_quizzes():
+def find_all_quizzes(user_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_all_quizzes
-        cursor.execute(query)
+        cursor.execute(query, (user_id,))
         results = cursor.fetchall()
 
     connection_to_database.close()
@@ -95,12 +95,12 @@ def find_all_quizzes():
     return results
 
 
-def find_quiz_by_name(quiz_name):
+def find_quiz_by_name(quiz_name, user_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_by_quiz_name
-        cursor.execute(query, (quiz_name,))
+        cursor.execute(query, (quiz_name, user_id))
         results = cursor.fetchall()
 
     connection_to_database.close()
@@ -108,12 +108,12 @@ def find_quiz_by_name(quiz_name):
     return results
 
 
-def find_quiz_by_creator(creatdBy):
+def find_quiz_by_creator(creatdBy, user_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_by_createdBy
-        cursor.execute(query, (creatdBy,))
+        cursor.execute(query, (creatdBy, user_id))
         results = cursor.fetchall()
 
     connection_to_database.close()
@@ -121,12 +121,12 @@ def find_quiz_by_creator(creatdBy):
     return results
 
 
-def find_quiz_by_type(type):
+def find_quiz_by_type(source, user_id):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_by_source
-        cursor.execute(query, (type,))
+        cursor.execute(query, (source, user_id))
         results = cursor.fetchall()
 
     connection_to_database.close()

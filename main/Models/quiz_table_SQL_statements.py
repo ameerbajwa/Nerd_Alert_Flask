@@ -1,11 +1,11 @@
 
-select_all_quizzes = "SELECT * FROM quiz;"
+select_all_quizzes = "SELECT * FROM quiz WHERE createdBy_user_id!=%s;"
 
-select_quiz_by_quiz_name = "SELECT * FROM quiz WHERE quiz_name=%s;"
+select_quiz_by_quiz_name = "SELECT * FROM quiz WHERE quiz_name=%s AND createdBy_user_id!=%s;"
 
-select_quiz_by_createdBy = "SELECT * FROM quiz WHERE createdBy=%s;"
+select_quiz_by_createdBy = "SELECT * FROM quiz WHERE createdBy=%s AND createdBy_user_id!=%s;"
 
-select_quiz_by_source = "SELECT * FROM quiz WHERE source=%s;"
+select_quiz_by_source = "SELECT * FROM quiz WHERE source=%s AND createdBy_user_id!=%s;"
 
 select_quiz_by_id = "SELECT * FROM quiz WHERE quiz_id=%s;"
 

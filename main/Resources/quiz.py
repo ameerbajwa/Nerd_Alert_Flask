@@ -10,16 +10,15 @@ class Quiz(Resource):
     # @jwt_required()
     def get(self):
         data = request.get_json()
-        results = {}
 
         if data['quiz_name'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_name(data["quiz_name"])
+            quizzes = SQL_queries_to_database.find_quiz_by_name(data["quiz_name"], data['user_id'])
         elif data['createdBy'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_creator(data["createdBy"])
+            quizzes = SQL_queries_to_database.find_quiz_by_creator(data["createdBy"], data['user_id'])
         elif data['source'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_type(data["source"])
+            quizzes = SQL_queries_to_database.find_quiz_by_type(data["source"], data['user_id'])
         else:
-            quizzes = SQL_queries_to_database.find_all_quizzes()
+            quizzes = SQL_queries_to_database.find_all_quizzes(data['user_id'])
 
         return jsonify(quizzes)
 
