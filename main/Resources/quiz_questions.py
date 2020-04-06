@@ -25,3 +25,11 @@ class quizQuestions(Resource):
 
         quiz_questions = SQL_queries_to_database.find_quiz_questions(data['quiz_id'], data['user_id'])
         return jsonify(quiz_questions)
+
+    # @jwt_required()
+    def delete(self):
+        data = request.get_json()
+
+        executed = SQL_queries_to_database.delete_quiz_question(data['question_id'])
+        if executed:
+            return {'message': 'Quiz question {} has been deleted'.format(data['question'])}
