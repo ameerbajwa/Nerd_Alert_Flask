@@ -1,3 +1,4 @@
+from flask import jsonify
 from flask_restful import Resource, request
 from flask_jwt import jwt_required
 
@@ -55,5 +56,6 @@ class UserInfo(Resource):
     def get(self):
         data = request.get_json()
 
-        user = User.find_by_username(data['username'])
-        return user
+        user = SQL_queries_to_database.find_user_by_username(data['username'])
+
+        return jsonify(user)
