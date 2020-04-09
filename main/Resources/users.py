@@ -53,9 +53,8 @@ class UserRegister(Resource):
 
 class UserInfo(Resource):
 
-    def get(self):
-        data = request.get_json()
+    def get(self, username):
 
-        user = SQL_queries_to_database.find_user_by_username(data['username'])
+        user = SQL_queries_to_database.find_user_by_username(username)
 
         return jsonify(user)
