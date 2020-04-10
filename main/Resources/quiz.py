@@ -5,22 +5,7 @@ from flask_jwt import jwt_required
 from Models import SQL_queries_to_database
 
 
-class Quiz(Resource):
-
-    # @jwt_required()
-    def get(self):
-        data = request.get_json()
-
-        if data['quiz_name'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_name(data["quiz_name"], data['user_id'], data['users_quizzes'])
-        elif data['createdBy'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_creator(data["createdBy"], data['user_id'], data['users_quizzes'])
-        elif data['source'] is not None:
-            quizzes = SQL_queries_to_database.find_quiz_by_type(data["source"], data['user_id'], data['users_quizzes'])
-        else:
-            quizzes = SQL_queries_to_database.find_all_quizzes(data['user_id'], data['users_quizzes'])
-
-        return jsonify(quizzes)
+class GenerateQuiz(Resource):
 
     # @jwt_required()
     def post(self):
@@ -35,4 +20,22 @@ class Quiz(Resource):
 
         if committed:
             return {'message': "Quiz created successfully."}, 201
+
+
+class RetrieveQuiz(Resource):
+
+    # @jwt_required()
+    def post(self):
+        data = request.get_json()
+
+        if data['quiz_name'] is not None:
+            quizzes = SQL_queries_to_database.find_quiz_by_name(data["quiz_name"], data['user_id'], data['users_quizzes'])
+        elif data['createdBy'] is not None:
+            quizzes = SQL_queries_to_database.find_quiz_by_creator(data["createdBy"], data['user_id'], data['users_quizzes'])
+        elif data['source'] is not None:
+            quizzes = SQL_queries_to_database.find_quiz_by_type(data["source"], data['user_id'], data['users_quizzes'])
+        else:
+            quizzes = SQL_queries_to_database.find_all_quizzes(data['user_id'], data['users_quizzes'])
+
+        return jsonify(quizzes)
 

@@ -4,7 +4,7 @@ from flask_jwt import jwt_required
 from Models import SQL_queries_to_database
 
 
-class userQuizResults(Resource):
+class EnterUserQuizResults(Resource):
 
     # @jwt_required()
     def post(self):

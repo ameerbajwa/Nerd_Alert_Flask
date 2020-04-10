@@ -12,9 +12,14 @@ jwt = JWT(app, security.authenticate, security.identity)
 
 api.add_resource(users.UserRegister, '/register_user', methods=['POST'])
 api.add_resource(users.UserInfo, '/user_info/<string:username>', methods=['GET'])
-api.add_resource(quiz.Quiz, '/quiz', methods=['GET', 'POST'])
-api.add_resource(quiz_questions.quizQuestions, '/quiz_questions', methods=['GET', 'POST', 'DELETE'])
-api.add_resource(user_quiz_results.userQuizResults, '/user_quiz_results', methods=['POST'])
-api.add_resource(user_question_results.userQuestionResults, '/user_question_results', methods=['POST'])
+
+api.add_resource(quiz.GenerateQuiz, '/generate_quiz', methods=['POST'])
+api.add_resource(quiz.RetrieveQuiz, '/retrieve_quiz', methods=['POST'])
+
+api.add_resource(quiz_questions.GenerateQuizQuestions, '/generate_quiz_questions', methods=['POST'])
+api.add_resource(quiz.questions.RetrieveQuizQuestions, '/retrieve_quiz_questions', methods=['POST'])
+
+api.add_resource(user_quiz_results.EnterUserQuizResults, '/enter_user_quiz_results', methods=['POST'])
+api.add_resource(user_question_results.EnterUserQuestionResults, '/enter_user_question_results', methods=['POST'])
 
 app.run(port=6373, debug=True)
