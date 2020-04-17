@@ -37,5 +37,10 @@ class RetrieveQuiz(Resource):
         else:
             quizzes = SQL_queries_to_database.find_all_quizzes(data['user_id'], data['users_quizzes'])
 
-        return jsonify(quizzes)
-
+        if len(quizzes) == 1:
+            return jsonify(quizzes)
+        else:
+            restructured_quizzes = {}
+            for i in range(0,len(quizzes)):
+                restructured_quizzes[str(i+1)] = quizzes[i]
+            return jsonify(restructured_quizzes)
