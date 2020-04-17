@@ -13,7 +13,7 @@ class GenerateQuiz(Resource):
 
         quiz_id = SQL_queries_to_database.find_new_quiz_id()
 
-        if SQL_queries_to_database.find_quiz_by_id(quiz_id['quiz_id']):
+        if SQL_queries_to_database.find_quiz_by_id(quiz_id['quiz_id']+1):
             return {'message': 'A quiz with that id already exists'}, 400
 
         committed = SQL_queries_to_database.create_quiz(data, quiz_id['quiz_id'])

@@ -11,10 +11,11 @@ create_users_table = "CREATE TABLE users (" \
 create_quiz_table = "CREATE TABLE quiz (" \
                     "   quiz_id INT NOT NULL PRIMARY KEY," \
                     "   quiz_name VARCHAR(500) NOT NULL," \
+                    "   quiz_description VARCHAR(500)," \
                     "   source VARCHAR(100) NOT NULL," \
                     "   title_of_source VARCHAR(500) NOT NULL," \
-                    "   createdBy VARCHAR(300) NOT NULL UNIQUE," \
-                    "   createdBy_user_id INT NOT NULL UNIQUE," \
+                    "   createdBy VARCHAR(300) NOT NULL," \
+                    "   createdBy_user_id INT NOT NULL," \
                     "   date_created datetime NOT NULL," \
                     "   active INT NOT NULL" \
                     ");"
