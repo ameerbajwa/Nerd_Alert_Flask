@@ -1,5 +1,7 @@
 from datetime import datetime
 from werkzeug.security import generate_password_hash
+import random
+import string
 
 from .connection import connect_to_mysql_database
 from .create_tables_SQL_statements import create_users_table, create_quiz_table, create_quiz_question_table, \
@@ -200,10 +202,11 @@ def find_new_quiz_id():
 # QUIZ QUESTION SQL STATEMENTS #
 def create_quiz_question(data):
     connection_to_database = connect_to_mysql_database()
+    random_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=12))
 
     with connection_to_database.cursor() as cursor:
         query = insert_quiz_question
-        cursor.execute(query, (str(data['question_id']), str(data['quiz_id']), data['question'], data['choice_A'],
+        cursor.execute(query, (random_id, str(data['quiz_id']), data['question'], data['choice_A'],
                                data['choice_B'], data['choice_C'], data['choice_D'], data['correct_answer'],
                                str(datetime.now())))
 
