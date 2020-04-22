@@ -23,6 +23,9 @@ api.add_resource(quiz_questions.GenerateQuizQuestions, '/generate_quiz_questions
 api.add_resource(quiz_questions.RetrieveQuizQuestions, '/retrieve_quiz_questions', methods=['POST'])
 
 api.add_resource(user_quiz_results.EnterUserQuizResults, '/enter_user_quiz_results', methods=['POST'])
+api.add_resource(user_quiz_results.RetrieveUserQuizResults, '/retrieve_user_quiz_results', methods=['POST'])
+
 api.add_resource(user_question_results.EnterUserQuestionResults, '/enter_user_question_results', methods=['POST'])
+api.add_resource(user_question_results.RetrieveUserQuestionResults, '/retrieve_user_question_results', methods=['POST'])
 
 app.run(port=6373, debug=True)

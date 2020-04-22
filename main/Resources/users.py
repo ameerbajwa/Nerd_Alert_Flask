@@ -6,13 +6,15 @@ from Models import SQL_queries_to_database
 
 
 class User:
-    def __init__(self, _id, username, password, email, date_created, last_login):
+    def __init__(self, _id, username, password, email, date_created, last_login, admin, creator):
         self.id = _id
         self.username = username
         self.password = password
         self.email = email
         self.date_created = date_created
         self.last_login = last_login
+        self.admin = admin
+        self.creator = creator
 
     @classmethod
     def find_by_username(cls, username):
@@ -20,7 +22,7 @@ class User:
 
         if results:
             user = cls(results['user_id'], results['username'], results['password'], results['email'],
-                       results['date_created'], results['last_login'])
+                       results['date_created'], results['last_login'], results['admin'], results['creator'])
         else:
             user = None
         return user

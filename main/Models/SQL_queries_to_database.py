@@ -12,15 +12,14 @@ from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes,
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
     select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions, delete_quiz_question
-from .user_quiz_results_table_SQL_statements import select_user_id_quiz_id, insert_user_quiz_results
-from .user_question_results_table_SQL_statements import select_user_id_question_id, insert_user_question_results
+from .user_quiz_results_table_SQL_statements import select_user_quiz_results, insert_user_quiz_results
+from .user_question_results_table_SQL_statements import select_user_question_results, insert_user_question_results
 
 
 def create_nerd_alert_tables():
     connection_to_database = connect_to_mysql_database()
 
-    create_tables_array = [create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results]
-    # create_users_table
+    create_tables_array = [create_users_table, create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results]
 
     for table in create_tables_array:
         with connection_to_database.cursor() as cursor:
@@ -80,7 +79,7 @@ def create_user(data, user_id):
     with connection_to_database.cursor() as cursor:
         query = register_new_user
         cursor.execute(query, (str(user_id+1), data['username'], generate_password_hash(data['password']), data['email'], str(datetime.now()),
-                               str(datetime.now())))
+                               str(datetime.now()), data['admin'], data['creator']))
 
         connection_to_database.commit()
 
@@ -241,11 +240,11 @@ def remove_quiz_question(question_id):
 
 
 # USERS QUIZ RESULTS SQL STATEMENTS #
-def find_user_id_quiz_id(user, quiz):
+def find_user_quiz_results(user, quiz):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
-        query = select_user_id_quiz_id
+        query = select_user_quiz_results
         cursor.execute(query, (user, quiz))
         results = cursor.fetchall()
 
@@ -258,7 +257,8 @@ def implant_users_quiz_score(data):
 
     with connection_to_database.cursor() as cursor:
         query = insert_user_quiz_results
-        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['score']), str(datetime.now())))
+        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['iteration']),
+                               str(data['score']), str(datetime.now())))
 
         connection_to_database.commit()
 
@@ -267,12 +267,12 @@ def implant_users_quiz_score(data):
 
 
 # USER QUESTION RESULTS SQL STATEMENTS #
-def find_user_id_question_id(user, question):
+def find_user_question_results(user, quiz):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
-        query = select_user_id_question_id
-        cursor.execute(query, (user, question))
+        query = select_user_question_results
+        cursor.execute(query, (user, quiz))
         results = cursor.fetchall()
 
     connection_to_database.close()
@@ -285,7 +285,7 @@ def implant_users_question_answers(data):
     with connection_to_database.cursor() as cursor:
         query = insert_user_question_results
         cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['question_id']),
-                               data['user_answer'], data['correct_answer']))
+                               str(data['quiz_iteration']), data['user_answer'], data['correct_answer']))
 
         connection_to_database.commit()
 

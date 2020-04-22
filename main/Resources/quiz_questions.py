@@ -27,7 +27,10 @@ class RetrieveQuizQuestions(Resource):
         data = request.get_json()
 
         quiz_questions = SQL_queries_to_database.find_quiz_questions(data['quiz_id'], data['user_id'])
-        return jsonify(quiz_questions)
+        restructured_quiz_questions = {}
+        for i in range(0, len(quiz_questions)):
+            restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
+        return jsonify(restructured_quiz_questions)
 
     # # @jwt_required()
     # def delete(self):
