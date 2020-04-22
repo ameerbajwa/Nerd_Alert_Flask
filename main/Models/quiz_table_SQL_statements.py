@@ -20,7 +20,7 @@ insert_new_quiz = "INSERT INTO quiz (" \
                   " createdBy, " \
                   " createdBy_user_id, " \
                   " date_created, " \
-                  " active) " \
+                  " status) " \
                   "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
 select_quiz_id = "SELECT quiz_id FROM quiz ORDER BY date_created DESC LIMIT 1;"

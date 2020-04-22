@@ -23,14 +23,14 @@ create_quiz_table = "CREATE TABLE quiz (" \
                     ");"
 
 create_quiz_question_table = "CREATE TABLE quiz_questions (" \
-                             "  question_id INT NOT NULL PRIMARY KEY," \
+                             "  question_id VARCHAR(15) NOT NULL PRIMARY KEY," \
                              "  quiz_id INT NOT NULL," \
                              "  question VARCHAR(500) NOT NULL," \
                              "  choice_A VARCHAR(500)," \
                              "  choice_B VARCHAR(500)," \
                              "  choice_C VARCHAR(500)," \
                              "  choice_D VARCHAR(500)," \
-                             "  correct_answer VARCHAR(10) NOT NULL," \
+                             "  correct_answer VARCHAR(500) NOT NULL," \
                              "  date_created DATETIME NOT NULL," \
                              "  FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id) ON DELETE CASCADE" \
                              ");"
@@ -48,10 +48,10 @@ create_user_quiz_results = "CREATE TABLE user_quiz_results (" \
 create_user_question_results = "CREATE TABLE user_question_results (" \
                                "    user_id INT NOT NULL," \
                                "    quiz_id INT NOT NULL," \
-                               "    question_id INT NOT NULL," \
+                               "    question_id VARCHAR(15) NOT NULL," \
                                "    quiz_iteration INT NOT NULL," \
-                               "    user_answer VARCHAR(10) NOT NULL," \
-                               "    correct_answer VARCHAR(10) NOT NULL," \
+                               "    user_answer VARCHAR(500) NOT NULL," \
+                               "    correct_answer VARCHAR(500) NOT NULL," \
                                "    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE," \
                                "    FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id) ON DELETE CASCADE," \
                                "    FOREIGN KEY (question_id) REFERENCES quiz_questions(question_id) ON DELETE CASCADE" \

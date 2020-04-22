@@ -19,7 +19,8 @@ from .user_question_results_table_SQL_statements import select_user_question_res
 def create_nerd_alert_tables():
     connection_to_database = connect_to_mysql_database()
 
-    create_tables_array = [create_users_table, create_quiz_table, create_quiz_question_table, create_user_quiz_results, create_user_question_results]
+    create_tables_array = [create_quiz_question_table, create_user_quiz_results, create_user_question_results]
+    # create_users_table, create_quiz_table,
 
     for table in create_tables_array:
         with connection_to_database.cursor() as cursor:
@@ -68,7 +69,7 @@ def find_user_id():
     connection_to_database.close()
 
     if len(result) == 0:
-        result = (0,)
+        return {'user_id': 0}
 
     return result[0]
 
@@ -79,7 +80,7 @@ def create_user(data, user_id):
     with connection_to_database.cursor() as cursor:
         query = register_new_user
         cursor.execute(query, (str(user_id+1), data['username'], generate_password_hash(data['password']), data['email'], str(datetime.now()),
-                               str(datetime.now()), data['admin'], data['creator']))
+                               str(datetime.now()), str(data['admin']), str(data['creator'])))
 
         connection_to_database.commit()
 
@@ -174,7 +175,7 @@ def create_quiz(data, quiz_id):
     with connection_to_database.cursor() as cursor:
         query = insert_new_quiz
         cursor.execute(query, (str(quiz_id+1), data['quiz_name'], data['quiz_description'], data['source'], data['title_of_source'],
-                               data['createdBy'], str(data['createdBy_user_id']), str(datetime.now()), str(1)))
+                               data['createdBy'], str(data['createdBy_user_id']), str(datetime.now()), str(0)))
 
         connection_to_database.commit()
 
