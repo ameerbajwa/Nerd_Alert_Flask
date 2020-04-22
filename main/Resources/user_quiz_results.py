@@ -11,10 +11,15 @@ class EnterUserQuizResults(Resource):
     def post(self):
         data = request.get_json()
 
-        if SQL_queries_to_database.find_user_id_quiz_id(data['user_id'], data['quiz_id']):
+        quiz_iteration = SQL_queries_to_database.find_quiz_iteration(data['quiz_id'])
+
+        if SQL_queries_to_database.find_quiz_iteration(quiz_iteration['quiz_iteration']+1):
+            return {'message': 'A quiz with that iteration already exists'}, 400
+
+        if SQL_queries_to_database.find_user_quiz_results(data['user_id'], data['quiz_id'], quiz_iteration['quiz_iteration']+1):
             return {'message': 'User has already taken this quiz'}, 400
 
-        committed = SQL_queries_to_database.implant_users_quiz_score(data)
+        committed = SQL_queries_to_database.implant_users_quiz_score(data, quiz_iteration['quiz_iteration'])
 
         if committed:
             return {'message': "Quiz created successfully."}, 201
@@ -26,7 +31,7 @@ class RetrieveUserQuizResults(Resource):
     def post(self):
         data = request.get_json()
 
-        user_quiz_results = SQL_queries_to_database.find_user_quiz_results(data['quiz_id'], data['user_id'])
+        user_quiz_results = SQL_queries_to_database.find_user_quiz_results(data['user_id'], data['quiz_id'])
         restructured_user_quiz_results = {}
         for i in range(0, len(user_quiz_results)):
             restructured_user_quiz_results['Iteration: ' + user_quiz_results[i]['iteration']] = user_quiz_results[i]

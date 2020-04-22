@@ -11,7 +11,7 @@ class EnterUserQuestionResults(Resource):
     def post(self):
         data = request.get_json()
 
-        if SQL_queries_to_database.find_user_id_question_id(data['quiz_id'], data['user_id']):
+        if SQL_queries_to_database.find_user_question_results(data['quiz_id'], data['user_id']):
             return {'message': 'User has already answered this question'}, 400
 
         committed_list = []
