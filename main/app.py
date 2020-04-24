@@ -18,6 +18,7 @@ api.add_resource(users.UserInfo, '/user_info/<string:username>', methods=['GET']
 
 api.add_resource(quiz.GenerateQuiz, '/generate_quiz', methods=['POST'])
 api.add_resource(quiz.RetrieveQuiz, '/retrieve_quiz', methods=['POST'])
+api.add_resource(quiz.FindQuiz, '/find_quiz/<string:quiz_id>', methods=['GET'])
 
 api.add_resource(quiz_questions.GenerateQuizQuestions, '/generate_quiz_questions', methods=['POST'])
 api.add_resource(quiz_questions.RetrieveQuizQuestions, '/retrieve_quiz_questions', methods=['POST'])

@@ -44,3 +44,11 @@ class RetrieveQuiz(Resource):
             for i in range(0,len(quizzes)):
                 restructured_quizzes[str(i+1)] = quizzes[i]
             return jsonify(restructured_quizzes)
+
+
+class FindQuiz(Resource):
+
+    # jwt_required
+    def get(self, quiz_id):
+        quiz = SQL_queries_to_database.find_quiz_by_id(quiz_id)
+        return jsonify(quiz)
