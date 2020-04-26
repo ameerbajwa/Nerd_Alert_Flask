@@ -38,11 +38,12 @@ class RetrieveUserQuizResults(Resource):
         return jsonify(restructured_user_quiz_results)
 
 
-class RetrieveQuizIteration(Resource):
+class RetrieveNewQuizIteration(Resource):
 
     def post(self):
         data = request.get_json()
 
         quiz_iteration = SQL_queries_to_database.find_quiz_iteration(data['user_id'], data['quiz_id'])
+        quiz_iteration['quiz_iteration'] += 1
         return jsonify(quiz_iteration)
 
