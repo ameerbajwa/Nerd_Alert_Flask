@@ -254,12 +254,12 @@ def find_user_quiz_results(user, quiz):
     return results
 
 
-def find_quiz_iteration(quiz):
+def find_quiz_iteration(user, quiz):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = select_quiz_iteration
-        cursor.execute(query, (quiz,))
+        cursor.execute(query, (user, quiz))
         result = cursor.fetchall()
 
     connection_to_database.close()
