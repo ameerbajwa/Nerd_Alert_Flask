@@ -11,15 +11,10 @@ class EnterUserQuizResults(Resource):
     def post(self):
         data = request.get_json()
 
-        quiz_iteration = SQL_queries_to_database.find_quiz_iteration(data['user_id'], data['quiz_id'])
-
-        if SQL_queries_to_database.find_quiz_iteration(quiz_iteration['quiz_iteration']+1):
-            return {'message': 'A quiz with that iteration already exists'}, 400
-
-        if SQL_queries_to_database.find_user_quiz_results(data['user_id'], data['quiz_id'], quiz_iteration['quiz_iteration']+1):
+        if SQL_queries_to_database.find_user_quiz_result(data['user_id'], data['quiz_id'], data['quiz_iteration']):
             return {'message': 'User has already taken this quiz'}, 400
 
-        committed = SQL_queries_to_database.implant_users_quiz_score(data, quiz_iteration['quiz_iteration'])
+        committed = SQL_queries_to_database.implant_users_quiz_score(data)
 
         if committed:
             return {'message': "Quiz created successfully."}, 201

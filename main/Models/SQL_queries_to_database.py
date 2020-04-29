@@ -12,8 +12,8 @@ from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes,
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
     select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions, delete_quiz_question
-from .user_quiz_results_table_SQL_statements import select_user_quiz_results, select_quiz_iteration, \
-    insert_user_quiz_results
+from .user_quiz_results_table_SQL_statements import select_user_quiz_result, select_user_quiz_results, \
+    select_quiz_iteration, insert_user_quiz_results
 from .user_question_results_table_SQL_statements import select_user_question_results, insert_user_question_results
 
 
@@ -242,6 +242,18 @@ def remove_quiz_question(question_id):
 
 
 # USERS QUIZ RESULTS SQL STATEMENTS #
+def find_user_quiz_result(user, quiz, iteration):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_user_quiz_result
+        cursor.execute(query, (user, quiz, iteration))
+        results = cursor.fetchall()
+
+    connection_to_database.close()
+    return results
+
+
 def find_user_quiz_results(user, quiz):
     connection_to_database = connect_to_mysql_database()
 
@@ -270,12 +282,12 @@ def find_quiz_iteration(user, quiz):
     return result[0]
 
 
-def implant_users_quiz_score(data, quiz_iteration):
+def implant_users_quiz_score(data):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
         query = insert_user_quiz_results
-        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(quiz_iteration+1),
+        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['quiz_iteration']),
                                str(data['score']), str(datetime.now())))
 
         connection_to_database.commit()

@@ -1,6 +1,8 @@
 
 select_user_quiz_results = "SELECT * FROM user_quiz_results WHERE user_id=%s AND quiz_id=%s;"
 
+select_user_quiz_result = "SELECT * FROM user_quiz_results WHERE user_id=%s AND quiz_id=%s AND iteration=%s"
+
 select_quiz_iteration = "SELECT iteration FROM user_quiz_results " \
                         "WHERE user_id=%s AND quiz_id=%s " \
                         "ORDER BY iteration DESC " \
