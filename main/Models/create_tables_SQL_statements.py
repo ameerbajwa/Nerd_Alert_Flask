@@ -36,6 +36,7 @@ create_quiz_question_table = "CREATE TABLE quiz_questions (" \
                              ");"
 
 create_user_quiz_results = "CREATE TABLE user_quiz_results (" \
+                           "    user_quiz_results_id VARCHAR(30) NOT NULL PRIMARY KEY," \
                            "    user_id INT NOT NULL," \
                            "    quiz_id INT NOT NULL," \
                            "    iteration INT NOT NULL," \
@@ -46,6 +47,7 @@ create_user_quiz_results = "CREATE TABLE user_quiz_results (" \
                            ");"
 
 create_user_question_results = "CREATE TABLE user_question_results (" \
+                               "    user_question_results_id VARCHAR(30) NOT NULL PRIMARY KEY," \
                                "    user_id INT NOT NULL," \
                                "    quiz_id INT NOT NULL," \
                                "    question_id VARCHAR(15) NOT NULL," \

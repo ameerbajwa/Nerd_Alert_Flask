@@ -284,10 +284,11 @@ def find_quiz_iteration(user, quiz):
 
 def implant_users_quiz_score(data):
     connection_to_database = connect_to_mysql_database()
+    random_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=24))
 
     with connection_to_database.cursor() as cursor:
         query = insert_user_quiz_results
-        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['quiz_iteration']),
+        cursor.execute(query, (random_id, str(data['user_id']), str(data['quiz_id']), str(data['quiz_iteration']),
                                str(data['score']), str(datetime.now())))
 
         connection_to_database.commit()
@@ -311,10 +312,11 @@ def find_user_question_results(user, quiz, quiz_iteration):
 
 def implant_users_question_answers(data):
     connection_to_database = connect_to_mysql_database()
+    random_id = ''.join(random.choices(string.ascii_uppercase + string.digits, k=24))
 
     with connection_to_database.cursor() as cursor:
         query = insert_user_question_results
-        cursor.execute(query, (str(data['user_id']), str(data['quiz_id']), str(data['question_id']),
+        cursor.execute(query, (random_id, str(data['user_id']), str(data['quiz_id']), str(data['question_id']),
                                str(data['quiz_iteration']), data['user_answer'], data['correct_answer']))
 
         connection_to_database.commit()
