@@ -17,7 +17,7 @@ class EnterUserQuizResults(Resource):
         committed = SQL_queries_to_database.implant_users_quiz_score(data)
 
         if committed:
-            return {'message': "Quiz created successfully."}, 201
+            return {'message': "Quiz results entered successfully."}, 201
 
 
 class RetrieveUserQuizResults(Resource):
@@ -39,6 +39,6 @@ class RetrieveNewQuizIteration(Resource):
         data = request.get_json()
 
         quiz_iteration = SQL_queries_to_database.find_quiz_iteration(data['user_id'], data['quiz_id'])
-        quiz_iteration['quiz_iteration'] += 1
+        quiz_iteration['iteration'] += 1
         return jsonify(quiz_iteration)
 

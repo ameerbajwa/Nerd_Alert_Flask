@@ -277,7 +277,7 @@ def find_quiz_iteration(user, quiz):
     connection_to_database.close()
 
     if len(result) == 0:
-        result = ({'quiz_iteration': 0},)
+        result = ({'iteration': 0},)
 
     return result[0]
 

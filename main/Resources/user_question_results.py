@@ -11,7 +11,9 @@ class EnterUserQuestionResults(Resource):
     def post(self):
         data = request.get_json()
 
-        if SQL_queries_to_database.find_user_question_results(data['quiz_id'], data['user_id']):
+        if SQL_queries_to_database.find_user_question_results(data['question_0']['user_id'],
+                                                              data['question_0']['quiz_id'],
+                                                              data['question_0']['quiz_iteration']):
             return {'message': 'User has already answered this question'}, 400
 
         committed_list = []
@@ -19,7 +21,11 @@ class EnterUserQuestionResults(Resource):
             committed = SQL_queries_to_database.implant_users_question_answers(data[k])
             committed_list.append(committed)
 
-        if None in committed_list:
+        for commit in committed_list:
+            if not commit:
+                return {'message': 'Error! User questions results implanted unsuccessfully.'}, 201
+                break
+        else:
             return {'message': 'User questions results implanted successfully.'}, 201
 
 
