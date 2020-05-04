@@ -37,6 +37,16 @@ class User:
             user = None
         return user
 
+    @classmethod
+    def find_by_email(cls, _email):
+        results = SQL_queries_to_database.find_user_by_email(_email)
+
+        if results:
+            user = cls(*results)
+        else:
+            user = None
+        return user
+
 
 class UserRegister(Resource):
 
@@ -44,13 +54,15 @@ class UserRegister(Resource):
         data = request.get_json()
 
         if User.find_by_username(data['username']):
-            return {'message': 'A user with that username already exists'}, 400
+            return {'username error': 'A user with that username already exists'}, 400
+        elif User.find_by_email(data['email']):
+            return {'email error': 'A user with that email already exists'}, 400
+        else:
+            user_id = SQL_queries_to_database.find_user_id()
+            committed = SQL_queries_to_database.create_user(data, user_id['user_id'])
 
-        user_id = SQL_queries_to_database.find_user_id()
-        committed = SQL_queries_to_database.create_user(data, user_id['user_id'])
-
-        if committed:
-            return {'message': "User created successfully."}, 201
+            if committed:
+                return {'message': "User created successfully."}, 201
 
 
 class UserInfo(Resource):

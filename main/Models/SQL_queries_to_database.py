@@ -6,8 +6,8 @@ import string
 from .connection import connect_to_mysql_database
 from .create_tables_SQL_statements import create_users_table, create_quiz_table, create_quiz_question_table, \
     create_user_quiz_results, create_user_question_results
-from .users_table_SQL_statements import select_user_by_username, select_user_by_user_id, register_new_user, \
-    select_user_id
+from .users_table_SQL_statements import select_user_by_username, select_user_by_email, select_user_by_user_id, \
+    register_new_user, select_user_id
 from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes, select_quiz_by_quiz_name, \
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
     select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id
@@ -52,6 +52,19 @@ def find_user_by_id(_id):
     with connection_to_database.cursor() as cursor:
         sql_query = select_user_by_user_id
         cursor.execute(sql_query, (_id,))
+        results = cursor.fetchone()
+
+    connection_to_database.close()
+
+    return results
+
+
+def find_user_by_email(_email):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        sql_query = select_user_by_email
+        cursor.execute(sql_query, (_email,))
         results = cursor.fetchone()
 
     connection_to_database.close()
