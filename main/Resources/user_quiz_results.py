@@ -29,7 +29,7 @@ class RetrieveUserQuizResults(Resource):
         user_quiz_results = SQL_queries_to_database.find_user_quiz_results(data['user_id'], data['quiz_id'])
         restructured_user_quiz_results = {}
         for i in range(0, len(user_quiz_results)):
-            restructured_user_quiz_results['Iteration: ' + user_quiz_results[i]['iteration']] = user_quiz_results[i]
+            restructured_user_quiz_results['Iteration: ' + str(user_quiz_results[i]['iteration'])] = user_quiz_results[i]
         return jsonify(restructured_user_quiz_results)
 
 
