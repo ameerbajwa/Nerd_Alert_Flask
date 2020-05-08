@@ -51,4 +51,4 @@ class FindQuiz(Resource):
     # jwt_required
     def get(self, quiz_id):
         quiz = SQL_queries_to_database.find_quiz_by_id(quiz_id)
-        return jsonify(quiz)
+        return jsonify(quiz[0])

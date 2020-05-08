@@ -1,7 +1,7 @@
 
 select_user_quiz_results = "SELECT * FROM user_quiz_results " \
-                           "WHERE user_id=%s AND quiz_id=%s" \
-                           "ORDER BY quiz_iteration;"
+                           "WHERE user_id=%s AND quiz_id=%s " \
+                           "ORDER BY iteration;"
 
 select_user_quiz_result = "SELECT * FROM user_quiz_results WHERE user_id=%s AND quiz_id=%s AND iteration=%s"
 
