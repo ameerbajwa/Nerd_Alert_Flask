@@ -11,6 +11,13 @@ select_users_quiz_by_source = "SELECT * FROM quiz WHERE source=%s AND createdBy_
 
 select_quiz_by_id = "SELECT * FROM quiz WHERE quiz_id=%s;"
 
+update_quiz = "UPDATE quiz SET " \
+              " quiz_name=%s, " \
+              " quiz_description=%s, " \
+              " source=%s, " \
+              " title_of_source=%s " \
+              "WHERE quiz_id=%s;"
+
 insert_new_quiz = "INSERT INTO quiz (" \
                   " quiz_id, " \
                   " quiz_name, " \

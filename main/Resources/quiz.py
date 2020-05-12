@@ -52,3 +52,14 @@ class FindQuiz(Resource):
     def get(self, quiz_id):
         quiz = SQL_queries_to_database.find_quiz_by_id(quiz_id)
         return jsonify(quiz[0])
+
+
+class UpdateQuiz(Resource):
+
+    def put(self):
+        data = request.get_json()
+
+        committed = SQL_queries_to_database.revise_quiz(data)
+
+        if committed:
+            return {'message': 'quiz was successfully updated'}, 202

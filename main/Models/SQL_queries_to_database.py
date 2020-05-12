@@ -10,7 +10,7 @@ from .users_table_SQL_statements import select_user_by_username, select_user_by_
     register_new_user, select_user_id
 from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes, select_quiz_by_quiz_name, \
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
-    select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id
+    select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id, update_quiz
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions, delete_quiz_question
 from .user_quiz_results_table_SQL_statements import select_user_quiz_result, select_user_quiz_results, \
     select_quiz_iteration, insert_user_quiz_results
@@ -211,6 +211,20 @@ def find_new_quiz_id():
         result = ({'quiz_id': 0},)
 
     return result[0]
+
+
+def revise_quiz(data, quiz_id):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = update_quiz
+        cursor.execute(query, (data['quiz_name'], data['quiz_description'], data['source'], data['title_of_source'],
+                               str(quiz_id)))
+
+        connection_to_database.commit()
+
+    connection_to_database.close()
+    return True
 
 
 # QUIZ QUESTION SQL STATEMENTS #
