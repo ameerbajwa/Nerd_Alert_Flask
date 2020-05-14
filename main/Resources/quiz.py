@@ -56,10 +56,10 @@ class FindQuiz(Resource):
 
 class UpdateQuiz(Resource):
 
-    def put(self):
+    def put(self, quiz_id):
         data = request.get_json()
 
-        committed = SQL_queries_to_database.revise_quiz(data)
+        committed = SQL_queries_to_database.revise_quiz(data, quiz_id)
 
         if committed:
             return {'message': 'quiz was successfully updated'}, 202
