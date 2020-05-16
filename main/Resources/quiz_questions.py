@@ -38,6 +38,15 @@ class RetrieveQuizQuestions(Resource):
                 restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
             return jsonify(restructured_quiz_questions)
 
+
+class RetrieveNumberOfQuizQuestions(Resource):
+
+    def get(self, quiz_id):
+
+        number_of_questions = SQL_queries_to_database.find_number_of_quiz_questions(quiz_id)
+
+        return {'number of questions in quiz': number_of_questions}, 200
+
     # # @jwt_required()
     # def delete(self):
     #     data = request.get_json()

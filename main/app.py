@@ -23,6 +23,8 @@ api.add_resource(quiz.UpdateQuiz, '/update_quiz/<string:quiz_id>', methods=['PUT
 
 api.add_resource(quiz_questions.GenerateQuizQuestions, '/generate_quiz_questions', methods=['POST'])
 api.add_resource(quiz_questions.RetrieveQuizQuestions, '/retrieve_quiz_questions', methods=['POST'])
+api.add_resource(quiz_questions.RetrieveNumberOfQuizQuestions,
+                 '/retrieve_number_of_quiz_questions/quiz_id/<string:quiz_id>', methods=['GET'])
 
 api.add_resource(user_quiz_results.EnterUserQuizResults, '/enter_user_quiz_results', methods=['POST'])
 api.add_resource(user_quiz_results.RetrieveUserQuizResults, '/retrieve_user_quiz_results', methods=['POST'])
