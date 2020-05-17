@@ -39,5 +39,5 @@ class RetrieveUserQuestionResults(Resource):
                                                                                    data['iteration'])
         restructured_user_question_results = {}
         for i in range(0, len(user_question_results)):
-            restructured_user_question_results[i] = user_question_results[i]
+            restructured_user_question_results[user_question_results[i]['question_id']] = user_question_results[i]
         return jsonify(restructured_user_question_results)

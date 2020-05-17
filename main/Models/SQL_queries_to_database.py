@@ -12,7 +12,7 @@ from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes,
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
     select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id, update_quiz
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions, \
-    select_count_quiz_questions, delete_quiz_question
+    select_quiz_questions_by_ids, select_count_quiz_questions, delete_quiz_question
 from .user_quiz_results_table_SQL_statements import select_user_quiz_result, select_user_quiz_results, \
     select_quiz_iteration, insert_user_quiz_results
 from .user_question_results_table_SQL_statements import select_user_question_results, insert_user_question_results
@@ -254,6 +254,22 @@ def find_quiz_questions(quiz_id, user_id):
         results = cursor.fetchall()
 
     connection_to_database.close()
+    print(results)
+    return results
+
+
+def find_quiz_questions_by_ids(question_ids):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = select_quiz_questions_by_ids
+        results = []
+        for id in question_ids:
+            cursor.execute(query, (id,))
+            results.append(cursor.fetchall())
+
+    connection_to_database.close()
+    print(results)
     return results
 
 

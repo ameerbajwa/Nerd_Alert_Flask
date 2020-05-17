@@ -18,6 +18,8 @@ select_quiz_questions = "SELECT * FROM quiz_questions " \
                         "ORDER BY RAND()" \
                         "LIMIT 10;"
 
+select_quiz_questions_by_ids = "SELECT * FROM quiz_questions WHERE question_id=%s;"
+
 select_count_quiz_questions = "SELECT COUNT(*) FROM quiz_questions " \
                               "WHERE quiz_id=%s;"
 
