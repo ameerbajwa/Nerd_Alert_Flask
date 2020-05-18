@@ -31,7 +31,8 @@ class RetrieveQuizQuestions(Resource):
         if len(quiz_questions) == 0:
             return {'Completed the quiz': 'You have completed all the questions to this quiz!'}, 200
         elif len(quiz_questions) < 10:
-            return {'Quiz Creator?': 'Quiz creator needs to finish adding more questions to make a complete 10 question quiz'}
+            return {'Quiz Creator?':
+                        'Quiz creator needs to finish adding more questions to make a complete 10 question quiz'}
         else:
             restructured_quiz_questions = {}
             for i in range(0, len(quiz_questions)):
@@ -44,8 +45,6 @@ class RetrieveQuizQuestionsByIds(Resource):
     # @jwt_required
     def post(self):
         data = request.get_json()
-
-        print(data)
 
         quiz_questions = SQL_queries_to_database.find_quiz_questions_by_ids(data['question_ids'])
 

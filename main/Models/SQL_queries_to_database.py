@@ -254,7 +254,6 @@ def find_quiz_questions(quiz_id, user_id):
         results = cursor.fetchall()
 
     connection_to_database.close()
-    print(results)
     return results
 
 
@@ -266,7 +265,7 @@ def find_quiz_questions_by_ids(question_ids):
         results = []
         for id in question_ids:
             cursor.execute(query, (id,))
-            results.append(cursor.fetchall())
+            results.append(cursor.fetchone())
 
     connection_to_database.close()
     return results
