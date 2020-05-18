@@ -269,7 +269,6 @@ def find_quiz_questions_by_ids(question_ids):
             results.append(cursor.fetchall())
 
     connection_to_database.close()
-    print(results)
     return results
 
 
@@ -354,7 +353,7 @@ def implant_users_quiz_score(data):
 
 
 # USER QUESTION RESULTS SQL STATEMENTS #
-def find_user_question_results(user, quiz, quiz_iteration):
+def find_user_question_results(quiz, user, quiz_iteration):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:

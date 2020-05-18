@@ -36,7 +36,8 @@ class RetrieveUserQuestionResults(Resource):
         data = request.get_json()
 
         user_question_results = SQL_queries_to_database.find_user_question_results(data['quiz_id'], data['user_id'],
-                                                                                   data['iteration'])
+                                                                                   data['quiz_iteration'])
+
         restructured_user_question_results = {}
         for i in range(0, len(user_question_results)):
             restructured_user_question_results[user_question_results[i]['question_id']] = user_question_results[i]

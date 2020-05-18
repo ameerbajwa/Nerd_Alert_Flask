@@ -45,6 +45,8 @@ class RetrieveQuizQuestionsByIds(Resource):
     def post(self):
         data = request.get_json()
 
+        print(data)
+
         quiz_questions = SQL_queries_to_database.find_quiz_questions_by_ids(data['question_ids'])
 
         restructured_quiz_questions = {}
@@ -60,7 +62,7 @@ class RetrieveNumberOfQuizQuestions(Resource):
 
         number_of_questions = SQL_queries_to_database.find_number_of_quiz_questions(quiz_id)
 
-        return {'number of questions in quiz': number_of_questions}, 200
+        return {'number of questions in quiz': number_of_questions[0]['COUNT(*)']}, 200
 
     # # @jwt_required()
     # def delete(self):
