@@ -40,6 +40,15 @@ class RetrieveQuizQuestions(Resource):
             return jsonify(restructured_quiz_questions)
 
 
+class RetrieveQuizQuestion(Resource):
+
+    # @jwt_required()
+    def get(self, question_id):
+        quiz_question = SQL_queries_to_database.find_quiz_question(question_id)
+
+        return jsonify(quiz_question)
+
+
 class RetrieveQuizQuestionsByIds(Resource):
 
     # @jwt_required
