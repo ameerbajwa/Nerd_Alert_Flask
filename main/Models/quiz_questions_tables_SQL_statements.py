@@ -20,6 +20,16 @@ select_quiz_questions = "SELECT * FROM quiz_questions " \
 
 select_quiz_question = "SELECT * FROM quiz_questions WHERE question_id=%s;"
 
+update_quiz_question =  "UPDATE quiz_questions SET " \
+                        " question=%s, " \
+                        " choice_A=%s, " \
+                        " choice_B=%s, " \
+                        " choice_C=%s, " \
+                        " choice_D=%s, " \
+                        " correct_answer=%s, " \
+                        " date_created=%s" \
+                        "WHERE question_id=%s;"
+
 select_quiz_questions_by_ids = "SELECT * FROM quiz_questions WHERE question_id=%s;"
 
 select_count_quiz_questions = "SELECT COUNT(*) FROM quiz_questions " \

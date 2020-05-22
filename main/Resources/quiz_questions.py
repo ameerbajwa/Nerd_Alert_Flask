@@ -49,6 +49,17 @@ class RetrieveQuizQuestion(Resource):
         return jsonify(quiz_question)
 
 
+class UpdateQuizQuestion(Resource):
+
+    # @jwt_required()
+    def put(self, question_id):
+        data = request.get_json()
+
+        committed = SQL_queries_to_database.revise_quiz_question(data, question_id)
+
+        if committed:
+            return {'message': 'quiz question was updated successfully'}
+
 class RetrieveQuizQuestionsByIds(Resource):
 
     # @jwt_required
