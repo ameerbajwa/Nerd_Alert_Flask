@@ -250,11 +250,12 @@ def find_quiz_questions(quiz_id, user_id, quiz_action):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
-        if quiz_action == "Taking Quiz":
+        if quiz_action == "Taking_Quiz":
             query = select_quiz_questions_for_quiz
-        elif quiz_action == "Editing Questions":
+            cursor.execute(query, (quiz_id, user_id))
+        elif quiz_action == "Editing_Questions":
             query = select_quiz_questions_for_editing
-        cursor.execute(query, (quiz_id, user_id))
+            cursor.execute(query, (quiz_id,))
         results = cursor.fetchall()
 
     connection_to_database.close()

@@ -27,7 +27,7 @@ class RetrieveQuizQuestions(Resource):
 
         quiz_questions = SQL_queries_to_database.find_quiz_questions(quiz_id, user_id, quiz_action)
 
-        if quiz_action == "Taking Quiz":
+        if quiz_action == "Taking_Quiz":
             if len(quiz_questions) == 0:
                 return {'Completed the quiz': 'You have completed all the questions to this quiz!'}, 200
             elif len(quiz_questions) < 10:
@@ -38,7 +38,7 @@ class RetrieveQuizQuestions(Resource):
                 for i in range(0, len(quiz_questions)):
                     restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
                 return jsonify(restructured_quiz_questions)
-        elif quiz_action == "Editing Questions":
+        elif quiz_action == "Editing_Questions":
             restructured_quiz_questions = {}
             for i in range(0, len(quiz_questions)):
                 restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
