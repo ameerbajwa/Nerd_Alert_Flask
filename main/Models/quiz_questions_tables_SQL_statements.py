@@ -12,11 +12,15 @@ insert_quiz_question = "INSERT INTO quiz_questions " \
                        "    date_created" \
                        ") VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
-select_quiz_questions = "SELECT * FROM quiz_questions " \
-                        "WHERE quiz_id=%s " \
-                        "AND question_id NOT IN (SELECT question_id FROM user_question_results WHERE user_id=%s)" \
-                        "ORDER BY RAND()" \
-                        "LIMIT 10;"
+select_quiz_questions_for_quiz = "SELECT * FROM quiz_questions " \
+                                 "WHERE quiz_id=%s " \
+                                 "AND question_id NOT IN (SELECT question_id FROM user_question_results WHERE user_id=%s)" \
+                                 "ORDER BY RAND()" \
+                                 "LIMIT 10;"
+
+select_quiz_questions_for_editing = "SELECT * FROM quiz_questions " \
+                                    "WHERE quiz_id=%s" \
+                                    "ORDER BY date_created DESC;"
 
 select_quiz_question = "SELECT * FROM quiz_questions WHERE question_id=%s;"
 

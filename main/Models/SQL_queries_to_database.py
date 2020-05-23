@@ -11,8 +11,9 @@ from .users_table_SQL_statements import select_user_by_username, select_user_by_
 from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes, select_quiz_by_quiz_name, \
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
     select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id, update_quiz
-from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions, select_quiz_question, \
-    update_quiz_question, select_quiz_questions_by_ids, select_count_quiz_questions, delete_quiz_question
+from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions_for_quiz, \
+    select_quiz_questions_for_editing, select_quiz_question, update_quiz_question, select_quiz_questions_by_ids, \
+    select_count_quiz_questions, delete_quiz_question
 from .user_quiz_results_table_SQL_statements import select_user_quiz_result, select_user_quiz_results, \
     select_quiz_iteration, insert_user_quiz_results
 from .user_question_results_table_SQL_statements import select_user_question_results, insert_user_question_results
@@ -245,11 +246,14 @@ def create_quiz_question(data):
     return True
 
 
-def find_quiz_questions(quiz_id, user_id):
+def find_quiz_questions(quiz_id, user_id, quiz_action):
     connection_to_database = connect_to_mysql_database()
 
     with connection_to_database.cursor() as cursor:
-        query = select_quiz_questions
+        if quiz_action == "Taking Quiz":
+            query = select_quiz_questions_for_quiz
+        elif quiz_action == "Editing Questions":
+            query = select_quiz_questions_for_editing
         cursor.execute(query, (quiz_id, user_id))
         results = cursor.fetchall()
 
