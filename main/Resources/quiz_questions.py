@@ -11,13 +11,9 @@ class GenerateQuizQuestions(Resource):
     def post(self):
         data = request.get_json()
 
-        committed_list = []
-        for k in data.keys():
-            committed = SQL_queries_to_database.create_quiz_question(data[k])
-            committed_list.append(committed)
+        id = SQL_queries_to_database.create_quiz_question(data)
 
-        if None in committed_list:
-            return {'message': 'Quiz questions created successfully.'}, 201
+        return {'question_id': id}, 200
 
 
 class RetrieveQuizQuestions(Resource):

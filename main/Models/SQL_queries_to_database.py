@@ -243,7 +243,7 @@ def create_quiz_question(data):
         connection_to_database.commit()
 
     connection_to_database.close()
-    return True
+    return random_id
 
 
 def find_quiz_questions(quiz_id, user_id, quiz_action):
@@ -251,7 +251,7 @@ def find_quiz_questions(quiz_id, user_id, quiz_action):
 
     with connection_to_database.cursor() as cursor:
         if quiz_action == "Taking_Quiz":
-            query = select_quiz_questions_for_quiz
+            query = select_quicreate_quiz_questionz_questions_for_quiz
             cursor.execute(query, (quiz_id, user_id))
         elif quiz_action == "Editing_Questions":
             query = select_quiz_questions_for_editing
