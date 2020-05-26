@@ -10,7 +10,7 @@ from .users_table_SQL_statements import select_user_by_username, select_user_by_
     register_new_user, select_user_id
 from .quiz_table_SQL_statements import select_all_quizzes, select_users_quizzes, select_quiz_by_quiz_name, \
     select_users_quiz_by_quiz_name, select_quiz_by_createdBy, select_users_quiz_by_createdBy, select_quiz_by_source, \
-    select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id, update_quiz
+    select_users_quiz_by_source, select_quiz_by_id, insert_new_quiz, select_quiz_id, update_quiz, delete_quiz
 from .quiz_questions_tables_SQL_statements import insert_quiz_question, select_quiz_questions_for_quiz, \
     select_quiz_questions_for_editing, select_quiz_question, update_quiz_question, select_quiz_questions_by_ids, \
     select_count_quiz_questions, delete_quiz_question
@@ -222,6 +222,19 @@ def revise_quiz(data, quiz_id):
         query = update_quiz
         cursor.execute(query, (data['quiz_name'], data['quiz_description'], data['source'], data['title_of_source'],
                                str(quiz_id)))
+
+        connection_to_database.commit()
+
+    connection_to_database.close()
+    return True
+
+
+def delete_quiz_by_id(quiz_id):
+    connection_to_database = connect_to_mysql_database()
+
+    with connection_to_database.cursor() as cursor:
+        query = delete_quiz
+        cursor.execute(query, (quiz_id,))
 
         connection_to_database.commit()
 

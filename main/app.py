@@ -20,6 +20,7 @@ api.add_resource(quiz.GenerateQuiz, '/generate_quiz', methods=['POST'])
 api.add_resource(quiz.RetrieveQuiz, '/retrieve_quiz', methods=['POST'])
 api.add_resource(quiz.FindQuiz, '/find_quiz/<string:quiz_id>', methods=['GET'])
 api.add_resource(quiz.UpdateQuiz, '/update_quiz/<string:quiz_id>', methods=['PUT'])
+api.add_resource(quiz.DeleteQuiz, '/delete_quiz/<string:quiz_id>', methods=['PUT'])
 
 api.add_resource(quiz_questions.GenerateQuizQuestions, '/generate_quiz_questions', methods=['POST'])
 api.add_resource(quiz_questions.RetrieveQuizQuestions,
@@ -32,6 +33,7 @@ api.add_resource(quiz_questions.UpdateQuizQuestion,
 api.add_resource(quiz_questions.RetrieveQuizQuestionsByIds, '/retrieve_quiz_questions_by_ids', methods=['POST'])
 api.add_resource(quiz_questions.RetrieveNumberOfQuizQuestions,
                  '/retrieve_number_of_quiz_questions/quizId/<string:quiz_id>', methods=['GET'])
+api.add_resource(quiz_questions.DeleteQuizQuestion, '/delete_quiz_question/<string:question_id>', methods=['DELETE'])
 
 api.add_resource(user_quiz_results.EnterUserQuizResults, '/enter_user_quiz_results', methods=['POST'])
 api.add_resource(user_quiz_results.RetrieveUserQuizResults, '/retrieve_user_quiz_results', methods=['POST'])

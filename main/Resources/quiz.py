@@ -48,7 +48,7 @@ class RetrieveQuiz(Resource):
 
 class FindQuiz(Resource):
 
-    # jwt_required
+    # @jwt_required
     def get(self, quiz_id):
         quiz = SQL_queries_to_database.find_quiz_by_id(quiz_id)
         return jsonify(quiz[0])
@@ -63,3 +63,10 @@ class UpdateQuiz(Resource):
 
         if committed:
             return {'message': 'quiz was successfully updated'}, 202
+
+
+class DeleteQuiz(Resource):
+
+    # @jwt_required
+    def put(self, quiz_id):
+        committed = SQL_queries_to_database.delete_quiz_by_id(quiz_id)

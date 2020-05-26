@@ -31,3 +31,5 @@ insert_new_quiz = "INSERT INTO quiz (" \
                   "VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
 select_quiz_id = "SELECT quiz_id FROM quiz ORDER BY date_created DESC LIMIT 1;"
+
+delete_quiz = "UPDATE quiz SET status = 0 WHERE quiz_id=%s;"
