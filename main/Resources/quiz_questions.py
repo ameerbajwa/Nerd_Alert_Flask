@@ -32,12 +32,12 @@ class RetrieveQuizQuestions(Resource):
             else:
                 restructured_quiz_questions = {}
                 for i in range(0, len(quiz_questions)):
-                    restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
+                    restructured_quiz_questions[i + 1] = quiz_questions[i]
                 return jsonify(restructured_quiz_questions)
         elif quiz_action == "Editing_Questions":
             restructured_quiz_questions = {}
             for i in range(0, len(quiz_questions)):
-                restructured_quiz_questions[str(i + 1)] = quiz_questions[i]
+                restructured_quiz_questions[i + 1] = quiz_questions[i]
             return jsonify(restructured_quiz_questions)
 
 
