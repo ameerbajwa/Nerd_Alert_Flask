@@ -33,6 +33,14 @@ class RetrieveUserQuizResults(Resource):
         return jsonify(restructured_user_quiz_results)
 
 
+class RetrieveUserQuizResult(Resource):
+
+    # jwt_required
+    def get(self, user_id, quiz_id, quiz_iteration):
+        user_quiz_result = SQL_queries_to_database.find_user_quiz_result(user_id, quiz_id, quiz_iteration)
+        return jsonify(user_quiz_result)
+
+
 class RetrieveNewQuizIteration(Resource):
 
     def post(self):

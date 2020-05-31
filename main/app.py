@@ -37,6 +37,9 @@ api.add_resource(quiz_questions.RetrieveNumberOfQuizQuestions,
 
 api.add_resource(user_quiz_results.EnterUserQuizResults, '/enter_user_quiz_results', methods=['POST'])
 api.add_resource(user_quiz_results.RetrieveUserQuizResults, '/retrieve_user_quiz_results', methods=['POST'])
+api.add_resource(user_quiz_results.RetrieveUserQuizResult,
+                 '/retrieve_user_quiz_result/user_id/<string:userId>/quiz_id/<string:quizId>/quiz_iteration/<string:quizIteration>',
+                 methods=['GET'])
 api.add_resource(user_quiz_results.RetrieveNewQuizIteration, '/retrieve_quiz_iteration', methods=['POST'])
 
 api.add_resource(user_question_results.EnterUserQuestionResults, '/enter_user_question_results', methods=['POST'])
