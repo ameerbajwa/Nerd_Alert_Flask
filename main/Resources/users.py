@@ -72,3 +72,12 @@ class UserInfo(Resource):
         user = SQL_queries_to_database.find_user_by_username(username)
 
         return jsonify(user)
+
+
+class UserForgottenInfo(Resource):
+
+    def get(self, email):
+
+        user_info = SQL_queries_to_database.find_user_by_email(email)
+
+        return user_info

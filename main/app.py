@@ -15,6 +15,7 @@ jwt = JWT(app, security.authenticate, security.identity)
 
 api.add_resource(users.UserRegister, '/register_user', methods=['POST'])
 api.add_resource(users.UserInfo, '/user_info/<string:username>', methods=['GET'])
+api.add_resource(users.UserForgottenInfo, '/user_forgotten_info/<string:email>', methods=['GET'])
 
 api.add_resource(quiz.GenerateQuiz, '/generate_quiz', methods=['POST'])
 api.add_resource(quiz.RetrieveQuiz, '/retrieve_quiz', methods=['POST'])
