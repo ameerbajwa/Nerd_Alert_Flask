@@ -14,18 +14,6 @@ app.json_encoder = CustomJSONEncoder
 
 jwt = JWT(app, security.authenticate, security.identity)
 
-mail_settings = {
-    "MAIL_SERVER": 'ameerbajwa@gmail.com',
-    "MAIL_PORT": 465,
-    "MAIL_USE_TLS": False,
-    "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": 'ameerbajwa',
-    "MAIL_PASSWORD": 'hallo'
-}
-
-app.config.update(mail_settings)
-mail = Mail(app)
-
 api.add_resource(users.UserRegister, '/register_user', methods=['POST'])
 api.add_resource(users.UserInfo, '/user_info/<string:username>', methods=['GET'])
 api.add_resource(users.UserForgottenInfo, '/user_forgotten_info/<string:email>', methods=['GET'])
@@ -58,13 +46,5 @@ api.add_resource(user_quiz_results.RetrieveNewQuizIteration, '/retrieve_quiz_ite
 
 api.add_resource(user_question_results.EnterUserQuestionResults, '/enter_user_question_results', methods=['POST'])
 api.add_resource(user_question_results.RetrieveUserQuestionResults, '/retrieve_user_question_results', methods=['POST'])
-
-if __name__ == '__main__':
-    with app.app_context():
-        msg = Message(subject="Hello",
-                      sender=app.config.get("MAIL_USERNAME"),
-                      recipients=["ameerbajwa@gmail.com"], # replace with your email for testing
-                      body="This is a test email I sent with Gmail and Python!")
-        mail.send(msg)
 
 app.run(port=6373, debug=True)
