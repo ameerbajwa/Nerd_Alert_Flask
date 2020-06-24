@@ -13,10 +13,8 @@ insert_quiz_question = "INSERT INTO quiz_questions " \
                        ") VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
 select_quiz_questions_for_quiz = "SELECT * FROM quiz_questions " \
-                                 "WHERE quiz_id=%s " \
-                                 "AND question_id NOT IN (SELECT question_id FROM user_question_results WHERE user_id=%s)" \
-                                 "ORDER BY date_created" \
-                                 "LIMIT 10;"
+                                 "WHERE quiz_id=%s AND question_id NOT IN (SELECT question_id FROM user_question_results WHERE user_id=%s) " \
+                                 "ORDER BY date_created LIMIT 10;"
 
 select_quiz_questions_for_editing = "SELECT * FROM quiz_questions " \
                                     "WHERE quiz_id=%s" \

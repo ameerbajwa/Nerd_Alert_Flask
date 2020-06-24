@@ -221,7 +221,7 @@ def revise_quiz(data, quiz_id):
     with connection_to_database.cursor() as cursor:
         query = update_quiz
         cursor.execute(query, (data['quiz_name'], data['quiz_description'], data['source'], data['title_of_source'],
-                               str(quiz_id)))
+                               quiz_id))
 
         connection_to_database.commit()
 
