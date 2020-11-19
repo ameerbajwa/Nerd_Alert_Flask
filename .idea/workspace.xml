@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59e8ea23-defa-4c18-bfef-0fc8cd645fa0" name="Default Changelist" comment="Debugging retrieveQuizQuestions GET API call.">
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter.xcodeproj/project.xcworkspace/xcuserdata/ameerbajwa.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter.xcodeproj/xcuserdata/ameerbajwa.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/AppDelegate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/Assets.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/Base.lproj/Main.storyboard" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/SceneDelegate.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UltimateTrivia-HarryPotter/UltimateTrivia-HarryPotter/ViewController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nerd_alert_SQL_statement_history.rtf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Nerd_Alert_Flask.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Nerd_Alert_Flask.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Zgi9T8vv2Y9fp4IECIuiq5UJ7B" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../github_projects/NFL_project" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;sys.path.extend(['Users/ameerbajwa/Projects/private_projects/Nerd_Alert/Nerd_Alert_Flask'])&#10;" module-name="Nerd_Alert_Flask" is-module-sdk="true" working-directory="$PROJECT_DIR$">
+        <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;sys.path.extend(['Users/ameerbajwa/Projects/private_projects/Nerd_Alert/Nerd_Alert_Flask'])&#10;" />
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Nerd_Alert_Flask" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main/" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59e8ea23-defa-4c18-bfef-0fc8cd645fa0" name="Default Changelist" comment="" />
+      <created>1585266987049</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585266987049</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Adding a new GET API request for obtaining user information after the security authentication methods have been called and fixing the POST /register_user API call creation of the next user_id.&#10;Need to fix all the GET API requests.">
+      <created>1585865688640</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1585865688640</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixing create quiz POST API call.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1585879643186</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1585879643187</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixing GET API call for finding quizzes. Introduced the GET API call in the renamed Quiz Resource class since there is no need for two separate Resource classes for quizzes, one for GET API call and one for POST API call.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1585897541807</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1585897541807</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Finished fixing the GET API call for quiz questions.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1585958138967</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1585958138967</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fixing quiz SQL statements. Logged in user should not be able to view and take their own quiz in the list of quizzes on their home page. They will be able to view their own quizzes from a different list.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1585958583187</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1585958583188</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Debugged the users and quizes Resource classes. Id that comes back from checking if newly created user or quiz is not identical to any in the database was a dictionary type rather than a straight integer type.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1586138002239</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1586138002239</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Creating new queries similar to the select quiz queries but now for quizzes created by the currently logged in user. Now the user will be able to view quizzes he can take and his own quizzes in a list if he wishes to add, edit, or delete questions to his own quizzes.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1586197769610</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1586197769610</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Providing a DELETE API call for questions for a current users' quizzes.&#10;Need to test DELETE API functionality on postman.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1586198174722</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1586198174722</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Debugged the get user info API call. Now I'll have the web access token and the current users' profile info when the user is using the app.&#10;Need to test DELETE API functionality on postman.&#10;Will start creating questions for newly created quiz.&#10;Need to fix all the GET API requests.">
+      <created>1586274947929</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1586274947929</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Needed to change the GET request API call in userInfo. Can't have request bodies in GET requests so have to pass any information through the url or change the request to a POST. Both ways mean that will need to add more resources to the flask api which feels redundant.&#10;Need to test DELETE API functionality on postman.&#10;Will start creating questions for newly created quiz.">
+      <created>1586463933510</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1586463933510</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Changed GET API requests to POST requests so that data can be passed through even though I don't want to add/modify anything to database, just retrieve information.&#10;&#10;Need to test DELETE API functional on postman.&#10;Will start creating questions for newly created quiz.&#10;Find a solution for passing information for GET API requests">
+      <created>1586478989456</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1586478989457</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Created a custom JSONEncoder class that will change the any datetime objects returned from the MySQL database to its isoformat style.&#10;&#10;Need to test DELETE API functional on postman.&#10;Started creating questions a HP1 book quiz .">
+      <created>1586723101526</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1586723101526</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added a new column to the quiz table and revised some other columns. &#10;Debugged the generate and retrieve API calls for the quiz SQL table.&#10;&#10;Need to test DELETE API functional on postman.&#10;Started creating questions a HP1 book quiz .">
+      <created>1587152271355</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1587152271355</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added functionality that allows responses to be returned to the swift front-end project with multiple json objects in one big json object for the retrieving quizzes API call.&#10;&#10;Need to test DELETE API functional on postman.&#10;Started creating questions a HP1 book quiz .">
+      <created>1587165355444</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1587165355444</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added random_id to the question_id slot when inserting questions to the MySQL database since there will be plenty of questions in the quiz question table.&#10;&#10;Need to test DELETE API functional on postman.&#10;Started creating questions a HP1 book quiz.">
+      <created>1587316209745</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1587316209745</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added new columns for the user quiz/question results table to signify which iteration of the quiz the user took.&#10;Added two new API calls to retrieve the user quiz/question results for the user to view them when they wish after they took that iteration of a quiz.&#10;&#10;Need to test DELETE API functional on postman.&#10;Started creating questions a HP1 book quiz.">
+      <created>1587533424210</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1587533424210</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Debugging the SQL statements to include the newly added columns in the tables.">
+      <created>1587537956282</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1587537956282</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Debugging the SQL statements to include the newly added columns in the tables.">
+      <created>1587574813902</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1587574813902</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Debugging the SQL statements to include the newly added columns in the tables.">
+      <created>1587574826151</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1587574826151</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Created a GET API call that will retrieve the quiz details based only on its quiz id.">
+      <created>1587754471401</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1587754471401</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Created a POST API call that will retrieve the quiz iteration number based on its quiz id and user id.">
+      <created>1587861715216</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1587861715216</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Created a POST API call that will retrieve the quiz iteration number based on its quiz id and user id.">
+      <created>1587861848915</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1587861848915</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Debugging an API call. Added the user_id parameter for finding a new quiz iteration API call.">
+      <created>1587951741602</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1587951741604</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Debugging an API call for entering user quiz results. Including quiz iteration in the data response rather than using a SQL query to find it in the database again since the information is already present in the iOS app.">
+      <created>1588177055239</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1588177055239</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Adding primary key ids within the user_quiz_results and user_question_results mysql tables.">
+      <created>1588192263035</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1588192263035</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Debugging user quiz results and user question results sql statements and API calls.">
+      <created>1588205596767</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1588205596770</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Working on the error handling of the log-in and sign-up pages of the app.">
+      <created>1588608851641</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1588608851641</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Debugging the return statement for retrieving user results API call. &#10;Added order by in sql statement for the select user quiz results.">
+      <created>1588918893055</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1588918893055</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Debugging the return statement for retrieving quiz by id API call. &#10;Added order by in sql statement for the select user quiz results.">
+      <created>1588960315380</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1588960315380</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Creating a PUT API call so the user is able to update any of their quiz details.">
+      <created>1589299741710</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1589299741710</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Debugging PUT API call that allows users to update any of their quiz details.">
+      <created>1589435393548</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1589435393548</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Creating a GET API call to retrieve the number of quiz questions in a quiz for the user to see in the statistics view of their quiz results.">
+      <created>1589656498368</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1589656498368</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Creating a POST API call to retrieve quiz questions based on their ids to show the question and choices when a user wants to view a specific quiz's subset of questions they have already taken.">
+      <created>1589677879981</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1589677879981</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Debugging the newly created API calls (retrieve number of quiz questions, retrieve user question results, and retrieve quiz questions based on id).">
+      <created>1589767506949</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1589767506949</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Debugging the newly created API calls (retrieve quiz questions based on id).">
+      <created>1589816691380</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1589816691380</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Creating a new GET API call for retrieving a single question from a user's quiz for the user to edit.">
+      <created>1590112732668</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1590112732668</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Creating a new PUT API call for updating a single question from a user's quiz.">
+      <created>1590126732489</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1590126732490</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Placing more conditions on the retrieve quiz question API call. Changed this API call from POST to GET and now will retrieve 10 quiz questions randomly when user wants to take a quiz or retrieves all quiz questions from a user's quiz to add/edit/delete any questions they want from that quiz.">
+      <created>1590261581589</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1590261581589</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Debugging the retrieve quiz questions API GET call.">
+      <created>1590262375784</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1590262375784</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Debugging the generate quiz question API POST call.">
+      <created>1590449643609</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1590449643616</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Figuring out a way to create a delete/put API call for quizzes when the user wants to remove a quiz. Should quiz still show up on other users' results when the creator removes that quiz?">
+      <created>1590505362145</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1590505362146</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Debugging APIs. Changed the retrieve quiz questions for quiz API from randomly selecting questions to ordering by date created.">
+      <created>1590561558946</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1590561558957</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Debugging APIs. Changed the retrieve quiz questions for quiz API from randomly selecting questions to ordering by date created.">
+      <created>1590968872311</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1590968872311</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Creating a new GET API call to retrieve user info based on user's email if they have forgotten their username or password.">
+      <created>1591331155648</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1591331155649</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Trying to create a mailing functionality using flask in python.">
+      <created>1591503658892</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1591503658893</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Debugging retrieveQuizQuestions GET API call to tell the user on the ios app when a quiz has no questions added to it yet what to do (add questions).">
+      <created>1591586754983</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1591586754983</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Debugging retrieveQuizQuestions GET API call.">
+      <created>1593010409350</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1593010409353</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Debugging retrieveQuizQuestions GET API call.">
+      <created>1596932264812</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1596932264814</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Debugging retrieveQuizQuestions GET API call.">
+      <created>1605762333059</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1605762333060</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created a POST API call that will retrieve the quiz iteration number based on its quiz id and user id." />
+    <MESSAGE value="Debugging an API call. Added the user_id parameter for finding a new quiz iteration API call." />
+    <MESSAGE value="Debugging an API call for entering user quiz results. Including quiz iteration in the data response rather than using a SQL query to find it in the database again since the information is already present in the iOS app." />
+    <MESSAGE value="Adding primary key ids within the user_quiz_results and user_question_results mysql tables." />
+    <MESSAGE value="Debugging user quiz results and user question results sql statements and API calls." />
+    <MESSAGE value="Working on the error handling of the log-in and sign-up pages of the app." />
+    <MESSAGE value="Debugging the return statement for retrieving user results API call. &#10;Added order by in sql statement for the select user quiz results." />
+    <MESSAGE value="Debugging the return statement for retrieving quiz by id API call. &#10;Added order by in sql statement for the select user quiz results." />
+    <MESSAGE value="Creating a PUT API call so the user is able to update any of their quiz details." />
+    <MESSAGE value="Debugging PUT API call that allows users to update any of their quiz details." />
+    <MESSAGE value="Creating a GET API call to retrieve the number of quiz questions in a quiz for the user to see in the statistics view of their quiz results." />
+    <MESSAGE value="Creating a POST API call to retrieve quiz questions based on their ids to show the question and choices when a user wants to view a specific quiz's subset of questions they have already taken." />
+    <MESSAGE value="Debugging the newly created API calls (retrieve number of quiz questions, retrieve user question results, and retrieve quiz questions based on id)." />
+    <MESSAGE value="Debugging the newly created API calls (retrieve quiz questions based on id)." />
+    <MESSAGE value="Creating a new GET API call for retrieving a single question from a user's quiz for the user to edit." />
+    <MESSAGE value="Creating a new PUT API call for updating a single question from a user's quiz." />
+    <MESSAGE value="Placing more conditions on the retrieve quiz question API call. Changed this API call from POST to GET and now will retrieve 10 quiz questions randomly when user wants to take a quiz or retrieves all quiz questions from a user's quiz to add/edit/delete any questions they want from that quiz." />
+    <MESSAGE value="Debugging the retrieve quiz questions API GET call." />
+    <MESSAGE value="Debugging the generate quiz question API POST call." />
+    <MESSAGE value="Figuring out a way to create a delete/put API call for quizzes when the user wants to remove a quiz. Should quiz still show up on other users' results when the creator removes that quiz?" />
+    <MESSAGE value="Debugging APIs. Changed the retrieve quiz questions for quiz API from randomly selecting questions to ordering by date created." />
+    <MESSAGE value="Creating a new GET API call to retrieve user info based on user's email if they have forgotten their username or password." />
+    <MESSAGE value="Trying to create a mailing functionality using flask in python." />
+    <MESSAGE value="Debugging retrieveQuizQuestions GET API call to tell the user on the ios app when a quiz has no questions added to it yet what to do (add questions)." />
+    <MESSAGE value="Debugging retrieveQuizQuestions GET API call." />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging retrieveQuizQuestions GET API call." />
+  </component>
+</project>
