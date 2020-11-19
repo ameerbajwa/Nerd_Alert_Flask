@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww21520\viewh15600\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \CocoaLigature0 CREATE TABLE users (\
+  user_id INT NOT NULL PRIMARY KEY,\
+  username VARCHAR(300) UNIQUE NOT NULL,\
+  email VARCHAR(300) UNIQUE NOT NULL,\
+  password VARCHAR(300) UNIQUE NOT NULL,\
+  date_created TIMESTAMP NOT NULL,\
+  last_login TIMESTAMP\
+);\
+\
+CREATE TABLE quiz (\
+  quiz_id INT NOT NULL PRIMARY KEY,\
+  quiz_name VARCHAR(500) NOT NULL,\
+  type_of_quiz VARCHAR(100) NOT NULL,\
+  date_created TIMESTAMP NOT NULL\
+);\
+\
+CREATE TABLE quiz_questions (\
+  question_id INT NOT NULL PRIMARY KEY,\
+  quiz_id INT NOT NULL,\
+  question VARCHAR(500) NOT NULL,\
+  choice_A VARCHAR(500) NOT NULL,\
+  choice_B VARCHAR(500) NOT NULL,\
+  choice_C VARCHAR(500),\
+  choice_D VARCHAR(500),\
+  correct_answer VARCHAR(10) NOT NULL,\
+  date_created TIMESTAMP NOT NULL\
+);\
+\
+DROP TABLE quiz_questions;\
+\
+CREATE TABLE user_quiz_results (\
+  user_id INT NOT NULL,\
+  quiz_id INT NOT NULL,\
+  score INT,\
+  date_created TIMESTAMP \
+);\
+\
+create table user_question_results (\
+  user_id INT NOT NULL,\
+  quiz_id INT NOT NULL,\
+  question_id INT NOT NULL,\
+  user_answer VARCHAR(500),\
+  correct_answer VARCHAR(10) NOT NULL\
+);}
